@@ -12,8 +12,8 @@ int main() {
   scanf("%d", &c);
 
   printf("Solving equation: %dx^2 %c %dx %c %d = 0\n", a,
-         (b > 0 ? '+' : '-'), abs(b),
-         (c > 0 ? '+' : '-'), abs(c));
+         (b >= 0 ? '+' : '-'), abs(b),
+         (c >= 0 ? '+' : '-'), abs(c));
 
   int diskr = b * b - 4 * a * c;
   if (diskr < 0) {

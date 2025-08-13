@@ -15,7 +15,17 @@ int main() {
 
   int diskr = b * b - 4 * a * c;
   int sq_diskr = sqrt(diskr);
-  if (diskr < 0) {
+  if (a == 0) {
+    if (b == 0) {
+      if (c == 0)
+        printf("Every possible x is allowed for this equation\n");
+      else
+        printf("There is no solution for this equation\n");
+    } else {
+      double x = -(double)c / b;
+      printf("Solution has found: x = %f\n", x);
+    }
+  } else if (diskr < 0) {
     printf("There is no solution for this square equation\n");
   } else if (diskr == 0) {
     double x = -(double)b / 2 / a;

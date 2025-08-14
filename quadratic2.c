@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX_LEN 81
+
 void read_coef(int *a, int *b, int *c);
 
 int main() {
@@ -40,25 +42,26 @@ int main() {
 }
 
 void read_coef(int *a, int *b, int *c) {
-  int max_len = 50;
-  char input[max_len];
+  char input[MAX_LEN];
   fputs("Enter square equation (format: ax^2 + bx + c): ", stdout);
-  fgets(input, max_len, stdin);
-  int cur = 0, mark = 1;
+  fgets(input, MAX_LEN, stdin);
+  int tmp = 0, deg = 0, prev_mark = 1, changed = 0;
   int nums[3] = {0, 0, 0};
-  for (int i = 0; i < max_len; ++i) {
-    if (isdigit(input[i]) && (i <= 0 || input[i - 1] != '^')) {
-      nums[cur] = nums[cur] * 10 + (input[i] - '0') * mark;
+  for (int i = 0; i < MAX_LEN; ++i) {
+    if (isdigit(input[i]) && deg != 2) {
+      changed = 1;
+      tmp = tmp * 10 + (input[i] - '0');
     } else if (input[i] == 'x') {
-      ++cur;
-      mark = 0;
-    } else if (input[i] == '+') {
-      mark = 1;
-    } else if (input[i] == '-') {
-      mark = -1;
+      deg = 1;
+    } else if (input[i] == '^') {
+      deg = 2;
+    } else if (input[i] == '+' || input[i] == '-' || input[i] == '\0') {
+      nums[deg] = (changed ? tmp * prev_mark : 1);
+      prev_mark = (input[i] == '+' ? 1 : -1);
+      tmp = deg = 0;
     }
   }
-  *a = nums[0];
+  *c = nums[0];
   *b = nums[1];
-  *c = nums[2];
+  *a = nums[2];
 }

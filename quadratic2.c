@@ -56,9 +56,11 @@ void read_coef(int *a, int *b, int *c) {
     } else if (input[i] == '^') {
       deg = 2;
     } else if (input[i] == '+' || input[i] == '-' || input[i] == '\0') {
-      nums[deg] = (changed ? tmp * prev_mark : 1);
+      nums[deg] += (changed ? tmp * prev_mark : 1);
       prev_mark = (input[i] == '+' ? 1 : -1);
       tmp = deg = 0;
+      if (input[i] == '\0')
+        break;
     }
   }
   *c = nums[0];

@@ -25,17 +25,17 @@ int main() {
         printf("There is no solution for this equation\n");
     } else {
       double x = -(double)c / b;
-      printf("Solution has found: x = %f\n", x);
+      printf("Solution has found: x = %lf\n", x);
     }
   } else if (diskr < 0) {
     printf("There is no solution for this square equation\n");
   } else if (diskr == 0) {
     double x = -(double)b / 2 / a;
-    printf("Solution has found: x = %f\n", x);
+    printf("Solution has found: x = %lf\n", x);
   } else {
     double x1 = (-b - sq_diskr) / 2 / a;
     double x2 = (-b + sq_diskr) / 2 / a;
-    printf("Solution has found: x1 = %f, x2 = %f\n", x1, x2);
+    printf("Solution has found: x1 = %lf, x2 = %lf\n", x1, x2);
   }
 
   return 0;

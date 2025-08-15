@@ -44,7 +44,7 @@ int main() {
 void input_coef(double *coef, char name) {
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef)) {
-    fputs("ERROR - Incorrect input data", stdout);
+    fputs("ERROR: Incorrect input data", stdout);
     exit(EXIT_FAILURE);
   }
 }

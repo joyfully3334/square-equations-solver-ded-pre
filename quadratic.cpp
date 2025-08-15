@@ -2,24 +2,24 @@
 #include <math.h>
 #include <stdlib.h>
 
+#define EPS 1e-5
+
+void input_coef(double *coef, char name);
+
 int main() {
   double a = 0., b = 0., c = 0.;
-  fputs("Enter a: ", stdout);
-  scanf("%lf", &a);
-  fputs("Enter b: ", stdout);
-  scanf("%lf", &b);
-  fputs("Enter c: ", stdout);
-  scanf("%lf", &c);
+  input_coef(&a, 'a');
+  input_coef(&b, 'b');
+  input_coef(&c, 'c');
 
   printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", a,
-         (b >= 0 ? '+' : '-'), abs(b),
-         (c >= 0 ? '+' : '-'), abs(c));
+         (b >= 0 ? '+' : '-'), fabs(b),
+         (c >= 0 ? '+' : '-'), fabs(c));
 
-  int diskr = b * b - 4 * a * c;
-  double sq_diskr = sqrt(diskr);
-  if (a == 0) {
-    if (b == 0) {
-      if (c == 0)
+  double diskr = b * b - 4 * a * c, sq_diskr = sqrt(diskr);
+  if (fabs(a - 0) <= EPS) {
+    if (fabs(b - 0) <= EPS) {
+      if (fabs(c - 0) <= EPS)
         printf("Every possible x is allowed for this equation\n");
       else
         printf("There is no solution for this equation\n");
@@ -27,9 +27,9 @@ int main() {
       double x = -(double)c / b;
       printf("Solution has found: x = %lf\n", x);
     }
-  } else if (diskr < 0) {
+  } else if (diskr < -EPS) {
     printf("There is no solution for this square equation\n");
-  } else if (diskr == 0) {
+  } else if (fabs(diskr - 0) <= EPS) {
     double x = -(double)b / 2 / a;
     printf("Solution has found: x = %lf\n", x);
   } else {
@@ -39,4 +39,12 @@ int main() {
   }
 
   return 0;
+}
+
+void input_coef(double *coef, char name) {
+  printf("Enter %c: ", name);
+  if (!scanf("%lf", coef)) {
+    fputs("ERROR - Incorrect input data", stdout);
+    exit(EXIT_FAILURE);
+  }
 }

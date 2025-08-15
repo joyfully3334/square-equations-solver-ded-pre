@@ -3,15 +3,15 @@
 #include <stdlib.h>
 
 int main() {
-  int a, b, c;
+  double a = 0., b = 0., c = 0.;
   fputs("Enter a: ", stdout);
-  scanf("%d", &a);
+  scanf("%lf", &a);
   fputs("Enter b: ", stdout);
-  scanf("%d", &b);
+  scanf("%lf", &b);
   fputs("Enter c: ", stdout);
-  scanf("%d", &c);
+  scanf("%lf", &c);
 
-  printf("Solving equation: %dx^2 %c %dx %c %d = 0\n", a,
+  printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", a,
          (b >= 0 ? '+' : '-'), abs(b),
          (c >= 0 ? '+' : '-'), abs(c));
 

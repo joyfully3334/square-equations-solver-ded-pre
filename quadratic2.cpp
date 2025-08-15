@@ -5,13 +5,13 @@
 
 #define MAX_LEN 81
 
-void read_coef(int *a, int *b, int *c);
+void read_coef(double *a, double *b, double *c);
 
 int main() {
-  int a, b, c;
+  double a = 0., b = 0., c = 0.;
   read_coef(&a, &b, &c);
 
-  printf("Solving equation: %dx^2 %c %dx %c %d = 0\n", a,
+  printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", a,
          (b >= 0 ? '+' : '-'), abs(b),
          (c >= 0 ? '+' : '-'), abs(c));
 
@@ -41,7 +41,7 @@ int main() {
   return 0;
 }
 
-void read_coef(int *a, int *b, int *c) {
+void read_coef(double *a, double *b, double *c) {
   char input[MAX_LEN];
   fputs("Enter square equation (format: ax^2 + bx + c): ", stdout);
   fgets(input, MAX_LEN, stdin);

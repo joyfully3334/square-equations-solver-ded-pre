@@ -29,8 +29,8 @@ int main() {
   double diskr = b * b - 4 * a * c;
   double sq_diskr = sqrt(diskr);
   if (zero_comp(a, EPS)) {
-    if (zero_comp(a, EPS)) {
-      if (zero_comp(a, EPS))
+    if (zero_comp(b, EPS)) {
+      if (zero_comp(b, EPS))
         printf("Every possible x is allowed for this equation\n");
       else
         printf("There is no solution for this equation\n");
@@ -40,7 +40,7 @@ int main() {
     }
   } else if (diskr < -EPS) {
     printf("There is no solution for this square equation\n");
-  } else if (zero_comp(a, EPS)) {
+  } else if (zero_comp(diskr, EPS)) {
     double x = -(double)b / 2 / a;
     printf("Solution has found: x = %lf\n", x);
   } else {

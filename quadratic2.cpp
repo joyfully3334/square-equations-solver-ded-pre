@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 #define MAX_LEN 81
+#define EPS 1e-5
 
 void read_coef(double *a, double *b, double *c);
 
@@ -17,7 +18,7 @@ int main() {
 
   int diskr = b * b - 4 * a * c;
   double sq_diskr = sqrt(diskr);
-  if (a == 0) {
+  if (fabs(a - 0) <= EPS) {
     if (b == 0) {
       if (c == 0)
         printf("Every possible x is allowed for this equation\n");

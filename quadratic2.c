@@ -16,7 +16,7 @@ int main() {
          (c >= 0 ? '+' : '-'), abs(c));
 
   int diskr = b * b - 4 * a * c;
-  int sq_diskr = sqrt(diskr);
+  double sq_diskr = sqrt(diskr);
   if (a == 0) {
     if (b == 0) {
       if (c == 0)
@@ -33,8 +33,8 @@ int main() {
     double x = -(double)b / 2 / a;
     printf("Solution has found: x = %f\n", x);
   } else {
-    double x1 = (double)(-b - sq_diskr) / 2 / a;
-    double x2 = (double)(-b + sq_diskr) / 2 / a;
+    double x1 = (-b - sq_diskr) / 2 / a;
+    double x2 = (-b + sq_diskr) / 2 / a;
     printf("Solution has found: x1 = %f, x2 = %f\n", x1, x2);
   }
 

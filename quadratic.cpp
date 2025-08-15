@@ -2,21 +2,32 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define EPS 1e-5
+int input_coef(double *coef, char name);
 
-void input_coef(double *coef, char name);
+void zero_comp(double num, const double EPS);
 
 int main() {
+  const double EPS = 1e-5;
   double a = 0., b = 0., c = 0.;
-  input_coef(&a, 'a');
-  input_coef(&b, 'b');
-  input_coef(&c, 'c');
+  if (input_coef(&a, 'a')) {
+    fputs("ERROR: Incorrect input data", stdout);
+    exit(EXIT_FAILURE);
+  }
+  if (input_coef(&b, 'b')) {
+    fputs("ERROR: Incorrect input data", stdout);
+    exit(EXIT_FAILURE);
+  }
+  if (input_coef(&c, 'c')) {
+    fputs("ERROR: Incorrect input data", stdout);
+    exit(EXIT_FAILURE);
+  }
 
   printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", a,
          (b >= 0 ? '+' : '-'), fabs(b),
          (c >= 0 ? '+' : '-'), fabs(c));
 
-  double diskr = b * b - 4 * a * c, sq_diskr = sqrt(diskr);
+  double diskr = b * b - 4 * a * c;
+  double sq_diskr = sqrt(diskr);
   if (fabs(a - 0) <= EPS) {
     if (fabs(b - 0) <= EPS) {
       if (fabs(c - 0) <= EPS)
@@ -41,10 +52,10 @@ int main() {
   return 0;
 }
 
-void input_coef(double *coef, char name) {
+int input_coef(double *coef, char name) {
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef)) {
-    fputs("ERROR: Incorrect input data", stdout);
-    exit(EXIT_FAILURE);
+    return 1;
   }
+  return 0;
 }

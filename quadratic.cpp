@@ -5,9 +5,9 @@
 enum INPUT_ERRORS { not_a_number = 1, not_finite = 2 };
 enum AMOUNT_OF_SOLUTIONS {
   zero_solutions = 0,
-  one_solution = 1,
-  two_solutions = 2,
-  inf_solutions = 3,
+  one_solution   = 1,
+  two_solutions  = 2,
+  inf_solutions  = 3,
 };
 const double EPS = 1e-5;
 
@@ -21,8 +21,8 @@ int zero_comp(double num);
 
 int less_then_zero(double num);
 
-void solve_quadratic(double a, double b, double c, double *x1, double *x2,
-                     int *solutions);
+void solve_quadratic(double a, double b, double c,
+                     double *x1, double *x2, int *solutions);
 
 void print_result(double x1, double x2, int solutions);
 
@@ -37,8 +37,8 @@ int main() {
     return 1;
 
   printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", quad1.a,
-         (quad1.b >= 0 ? '+' : '-'), fabs(quad1.b), (quad1.c >= 0 ? '+' : '-'),
-         fabs(quad1.c));
+         (quad1.b >= 0 ? '+' : '-'), fabs(quad1.b),
+         (quad1.c >= 0 ? '+' : '-'), fabs(quad1.c));
 
   solve_quadratic(quad1.a, quad1.b, quad1.c, &quad1.x1, &quad1.x2,
                   &quad1.solutions);

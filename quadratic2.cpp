@@ -3,18 +3,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+const double EPS = 1e-5;
+
 int input_coef(double *coef, char name);
 
-int zero_comp(double num, const double EPS);
+int zero_comp(double num);
 
 int read_coef(double *a, double *b, double *c);
 
 int main() {
-  const double EPS = 1e-5;
   double a = 0., b = 0., c = 0.;
   if (read_coef(&a, &b, &c)) {
     printf("ERROR: Incorrect input data\n");
-    exit(EXIT_FAILURE);
+    return 1;
   }
 
   printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", a,
@@ -23,9 +24,9 @@ int main() {
 
   double diskr = b * b - 4 * a * c;
   double sq_diskr = sqrt(diskr);
-  if (zero_comp(a, EPS)) {
-    if (zero_comp(b, EPS)) {
-      if (zero_comp(b, EPS))
+  if (zero_comp(a)) {
+    if (zero_comp(b)) {
+      if (zero_comp(b))
         printf("Every possible x is allowed for this equation\n");
       else
         printf("There is no solution for this equation\n");
@@ -35,7 +36,7 @@ int main() {
     }
   } else if (diskr < -EPS) {
     printf("There is no solution for this square equation\n");
-  } else if (zero_comp(diskr, EPS)) {
+  } else if (zero_comp(diskr)) {
     double x = -(double)b / 2 / a;
     printf("Solution has found: x = %lf\n", x);
   } else {
@@ -47,7 +48,7 @@ int main() {
   return 0;
 }
 
-int zero_comp(double num, const double EPS) {
+int zero_comp(double num) {
   return (fabs(num - 0.) <= EPS);
 }
 
@@ -65,7 +66,7 @@ int read_coef(double *a, double *b, double *c) {
   printf("Enter square equation (format: ax^2 + bx + c): ");
   fgets(input, MAX_LEN, stdin);
   double tmp = 0;
-  int deg = 0, prev_mark = 1, changed = 0, after_dot = 0;
+  int deg = 0, changed = 0, after_dot = 0, prev_mark = 1;
   double nums[3] = {0., 0., 0.};
   for (int i = 0; i < MAX_LEN; ++i) {
     if (isdigit(input[i]) && deg != 2 && !after_dot) {
@@ -84,7 +85,8 @@ int read_coef(double *a, double *b, double *c) {
     } else if (input[i] == '+' || input[i] == '-' || input[i] == '\0') {
       nums[deg] += (!changed && deg ? prev_mark : tmp * prev_mark);
       prev_mark = (input[i] == '+' ? 1 : -1);
-      tmp = deg = after_dot = 0;
+      tmp = 0.;
+      deg = after_dot = 0;
       if (input[i] == '\0')
         break;
     }

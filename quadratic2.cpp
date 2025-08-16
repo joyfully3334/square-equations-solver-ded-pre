@@ -12,9 +12,9 @@ enum AMOUNT_OF_SOLUTIONS {
 };
 const double EPS = 1e-5;
 
-int input_coef(double *coef, char name);
+int read_coef(double *coef, char name);
 
-int read_coef(double *a, double *b, double *c);
+int read_input(double *a, double *b, double *c);
 
 int coef_err_handler(int read_result);
 
@@ -34,7 +34,7 @@ struct quadratic {
 
 int main() {
   struct quadratic quad1 = {0., 0., 0., 0., 0., 0};
-  if (coef_err_handler(read_coef(&quad1.a, &quad1.b, &quad1.c)))
+  if (coef_err_handler(read_input(&quad1.a, &quad1.b, &quad1.c)))
     return 1;
 
   printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", quad1.a,
@@ -48,7 +48,7 @@ int main() {
   return 0;
 }
 
-int input_coef(double *coef, char name) {
+int read_coef(double *coef, char name) {
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef))
     return not_a_number;
@@ -57,7 +57,7 @@ int input_coef(double *coef, char name) {
   return 0;
 }
 
-int read_coef(double *a, double *b, double *c) {
+int read_input(double *a, double *b, double *c) {
   const int MAX_LEN = 81;
   char input[MAX_LEN];
   printf("Enter square equation (format: ax^2 + bx + c): ");

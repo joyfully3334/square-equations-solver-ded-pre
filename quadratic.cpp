@@ -7,13 +7,13 @@ enum AMOUNT_OF_SOLUTIONS {
   zero_solutions = 0,
   one_solution = 1,
   two_solutions = 2,
-  inf_solutions = 3
+  inf_solutions = 3,
 };
 const double EPS = 1e-5;
 
-int input_coef(double *coef, char name);
+int read_coef(double *coef, char name);
 
-int read_coef(double *a, double *b, double *c);
+int read_input(double *a, double *b, double *c);
 
 int coef_err_handler(int read_result);
 
@@ -33,7 +33,7 @@ struct quadratic {
 
 int main() {
   struct quadratic quad1 = {0., 0., 0., 0., 0., 0};
-  if (coef_err_handler(read_coef(&quad1.a, &quad1.b, &quad1.c)))
+  if (coef_err_handler(read_input(&quad1.a, &quad1.b, &quad1.c)))
     return 1;
 
   printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", quad1.a,
@@ -47,7 +47,7 @@ int main() {
   return 0;
 }
 
-int input_coef(double *coef, char name) {
+int read_coef(double *coef, char name) {
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef))
     return not_a_number;
@@ -56,14 +56,14 @@ int input_coef(double *coef, char name) {
   return 0;
 }
 
-int read_coef(double *a, double *b, double *c) {
-  int ret_val = input_coef(a, 'a');
+int read_input(double *a, double *b, double *c) {
+  int ret_val = read_coef(a, 'a');
   if (ret_val)
     return ret_val;
-  ret_val = input_coef(b, 'b');
+  ret_val = read_coef(b, 'b');
   if (ret_val)
     return ret_val;
-  ret_val = input_coef(c, 'c');
+  ret_val = read_coef(c, 'c');
   if (ret_val)
     return ret_val;
   return 0;

@@ -19,8 +19,6 @@ int Coef_Err_Handler(enum INPUT_ERRORS read_result);
 
 int Zero_Comp(double num);
 
-int Less_Then_Zero(double num);
-
 void Solve_Quadratic(struct SquareEquation *quad);
 
 void Print_Result(struct SquareEquation quad);
@@ -78,16 +76,22 @@ int Coef_Err_Handler(enum INPUT_ERRORS read_result) {
   return 0;
 }
 
-int Zero_Comp(double num) { return (fabs(num - 0.) <= EPS); }
+int Zero_Comp(double num) {
+  if (num < -EPS)
+    return -1;
+  else if (fabs(num - 0.) <= EPS)
+    return 0;
+  else
+    return 1;
+}
 
-int Less_Then_Zero(double num) { return (num < -EPS); }
 
 void Solve_Quadratic(struct SquareEquation *quad) {
   double diskr = quad->b * quad->b - 4 * quad->a * quad->c;
   double sq_diskr = sqrt(diskr);
-  if (Zero_Comp(quad->a)) {
-    if (Zero_Comp(quad->b)) {
-      if (Zero_Comp(quad->c))
+  if (Zero_Comp(quad->a) == 0) {
+    if (Zero_Comp(quad->b) == 0) {
+      if (Zero_Comp(quad->c) == 0)
         quad->number_of_solutions = inf_solutions;
       else
         quad->number_of_solutions = zero_solutions;
@@ -95,9 +99,9 @@ void Solve_Quadratic(struct SquareEquation *quad) {
       quad->x1 = -(double)quad->c / quad->b;
       quad->number_of_solutions = one_solution;
     }
-  } else if (Less_Then_Zero(diskr)) {
+  } else if (Zero_Comp(diskr) < 0) {
     quad->number_of_solutions = zero_solutions;
-  } else if (Zero_Comp(diskr)) {
+  } else if (Zero_Comp(diskr) == 0) {
     quad->x1 = -(double)quad->b / 2 / quad->a;
     quad->number_of_solutions = one_solution;
   } else {

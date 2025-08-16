@@ -96,13 +96,13 @@ void Solve_Quadratic(struct SquareEquation *quad) {
       else
         quad->number_of_solutions = zero_solutions;
     } else {
-      quad->x1 = -(double)quad->c / quad->b;
+      quad->x1 = -quad->c / quad->b;
       quad->number_of_solutions = one_solution;
     }
   } else if (Zero_Comp(diskr) < 0) {
     quad->number_of_solutions = zero_solutions;
   } else if (Zero_Comp(diskr) == 0) {
-    quad->x1 = -(double)quad->b / 2 / quad->a;
+    quad->x1 = -quad->b / 2 / quad->a;
     quad->number_of_solutions = one_solution;
   } else {
     quad->x1 = (-quad->b - sq_diskr) / 2 / quad->a;
@@ -112,12 +112,20 @@ void Solve_Quadratic(struct SquareEquation *quad) {
 }
 
 void Print_Result(struct SquareEquation quad) {
-  if (quad.number_of_solutions == zero_solutions)
+  switch (quad.number_of_solutions) {
+  case zero_solutions: 
     printf("There is no solution for this square equation\n");
-  else if (quad.number_of_solutions == one_solution)
+    break;
+  case one_solution:
     printf("Solution has found: x = %lf\n", quad.x1);
-  else if (quad.number_of_solutions == two_solutions)
+    break;
+  case two_solutions:
     printf("Solution has found: x1 = %lf, x2 = %lf\n", quad.x1, quad.x2);
-  else if (quad.number_of_solutions == inf_solutions)
+    break;
+  case inf_solutions:
     printf("Every possible x is allowed for this equation\n");
+    break;
+  default:
+    break;
+  }
 }

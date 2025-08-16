@@ -1,24 +1,18 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 int input_coef(double *coef, char name);
 
 int zero_comp(double num, const double EPS);
 
+int read_coef(double *a, double *b, double *c);
+
 int main() {
   const double EPS = 1e-5;
   double a = 0., b = 0., c = 0.;
-  if (input_coef(&a, 'a')) {
-    printf("ERROR: Incorrect input data");
-    exit(EXIT_FAILURE);
-  }
-  if (input_coef(&b, 'b')) {
-    printf("ERROR: Incorrect input data");
-    exit(EXIT_FAILURE);
-  }
-  if (input_coef(&c, 'c')) {
-    printf("ERROR: Incorrect input data");
+  if (read_coef(&a, &b, &c)) {
+    printf("ERROR: Incorrect input data\n");
     exit(EXIT_FAILURE);
   }
 
@@ -62,4 +56,12 @@ int input_coef(double *coef, char name) {
     return 1;
   }
   return 0;
+}
+
+int read_coef(double *a, double *b, double *c) {
+  int ret_val = 0;
+  ret_val += input_coef(a, 'a');
+  ret_val += input_coef(b, 'b');
+  ret_val += input_coef(c, 'c');
+  return ret_val;
 }

@@ -3,6 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+enum INPUT_ERRORS { not_a_number = 1, not_finite = 2 };
+enum AMOUNT_OF_SOLUTIONS {
+  zero_solutions = 0,
+  one_solution = 1,
+  two_solutions = 2,
+  inf_solutions = 3
+};
 const double EPS = 1e-5;
 
 int input_coef(double *coef, char name);
@@ -13,23 +20,30 @@ int coef_err_handler(int read_result);
 
 int zero_comp(double num);
 
-void solve_quadratic(double a, double b, double c, double *x1, double *x2);
+int less_then_zero(double num);
 
-void print_result(double x1, double x2);
+void solve_quadratic(double a, double b, double c, double *x1, double *x2,
+                     int *solutions);
+
+void print_result(double x1, double x2, int solutions);
+
+struct quadratic {
+  double a, b, c, x1, x2;
+  int solutions;
+};
 
 int main() {
-  double a = 0., b = 0., c = 0.;
-  if (coef_err_handler(read_coef(&a, &b, &c)))
+  struct quadratic quad1 = {0., 0., 0., 0., 0., 0};
+  if (coef_err_handler(read_coef(&quad1.a, &quad1.b, &quad1.c)))
     return 1;
 
-  printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", a,
-         (b >= 0 ? '+' : '-'), fabs(b),
-         (c >= 0 ? '+' : '-'), fabs(c));
+  printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", quad1.a,
+         (quad1.b >= 0 ? '+' : '-'), fabs(quad1.b), (quad1.c >= 0 ? '+' : '-'),
+         fabs(quad1.c));
 
-  double x1 = 0., x2 = 0.;
-  solve_quadratic(a, b, c, &x1, &x2);
-
-  print_result(x1, x2);
+  solve_quadratic(quad1.a, quad1.b, quad1.c, &quad1.x1, &quad1.x2,
+                  &quad1.solutions);
+  print_result(quad1.x1, quad1.x2, quad1.solutions);
 
   return 0;
 }
@@ -37,9 +51,9 @@ int main() {
 int input_coef(double *coef, char name) {
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef))
-    return 1;
+    return not_a_number;
   if (!isfinite(*coef))
-    return 2;
+    return not_finite;
   return 0;
 }
 
@@ -81,10 +95,10 @@ int read_coef(double *a, double *b, double *c) {
 }
 
 int coef_err_handler(int read_result) {
-  if (read_result == 1) {
+  if (read_result == not_a_number) {
     printf("Incorrect input data: Provided symbols is not a number\n");
     return 1;
-  } else if (read_result == 2) {
+  } else if (read_result == not_finite) {
     printf("Incorrect input data: Provided number is not finite\n");
     return 1;
   }
@@ -93,37 +107,41 @@ int coef_err_handler(int read_result) {
 
 int zero_comp(double num) { return (fabs(num - 0.) <= EPS); }
 
-void solve_quadratic(double a, double b, double c, double *x1, double *x2) {
+int less_then_zero(double num) { return (num < -EPS); }
+
+void solve_quadratic(double a, double b, double c, double *x1, double *x2,
+                     int *solutions) {
   double diskr = b * b - 4 * a * c;
   double sq_diskr = sqrt(diskr);
   if (zero_comp(a)) {
     if (zero_comp(b)) {
       if (zero_comp(b))
-        *x1 = *x2 = INFINITY;
+        *solutions = inf_solutions;
       else
-        *x1 = *x2 = NAN;
+        *solutions = zero_solutions;
     } else {
       *x1 = -(double)c / b;
-      *x2 = NAN;
+      *solutions = one_solution;
     }
-  } else if (diskr < -EPS) {
-    *x1 = *x2 = NAN;
+  } else if (less_then_zero(diskr)) {
+    *solutions = zero_solutions;
   } else if (zero_comp(diskr)) {
     *x1 = -(double)b / 2 / a;
-    *x2 = NAN;
+    *solutions = one_solution;
   } else {
     *x1 = (-b - sq_diskr) / 2 / a;
     *x2 = (-b + sq_diskr) / 2 / a;
+    *solutions = two_solutions;
   }
 }
 
-void print_result(double x1, double x2) {
-  if (isnan(x1) && isnan(x2))
+void print_result(double x1, double x2, int solutions) {
+  if (solutions == zero_solutions)
     printf("There is no solution for this square equation\n");
-  else if (isinf(x1) && isinf(x2))
-    printf("Every possible x is allowed for this equation\n");
-  else if (isnan(x2))
+  else if (solutions == one_solution)
     printf("Solution has found: x = %lf\n", x1);
-  else
+  else if (solutions == two_solutions)
     printf("Solution has found: x1 = %lf, x2 = %lf\n", x1, x2);
+  else if (solutions == inf_solutions)
+    printf("Every possible x is allowed for this equation\n");
 }

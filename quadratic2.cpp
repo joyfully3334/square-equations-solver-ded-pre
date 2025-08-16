@@ -62,22 +62,29 @@ int input_coef(double *coef, char name) {
 int read_coef(double *a, double *b, double *c) {
   const int MAX_LEN = 81;
   char input[MAX_LEN];
-  fputs("Enter square equation (format: ax^2 + bx + c): ", stdout);
+  printf("Enter square equation (format: ax^2 + bx + c): ");
   fgets(input, MAX_LEN, stdin);
-  int tmp = 0, deg = 0, prev_mark = 1, changed = 0;
-  int nums[3] = {0, 0, 0};
+  double tmp = 0;
+  int deg = 0, prev_mark = 1, changed = 0, after_dot = 0;
+  double nums[3] = {0., 0., 0.};
   for (int i = 0; i < MAX_LEN; ++i) {
-    if (isdigit(input[i]) && deg != 2) {
+    if (isdigit(input[i]) && deg != 2 && !after_dot) {
       changed = 1;
       tmp = tmp * 10 + (input[i] - '0');
+    } else if (isdigit(input[i]) && deg != 2 && after_dot) {
+      changed = 1;
+      tmp += (input[i] - '0') * pow(10, -after_dot);
+      ++after_dot;
+    } else if (input[i] == '.') {
+      after_dot = 1;
     } else if (input[i] == 'x') {
       deg = 1;
     } else if (input[i] == '^') {
       deg = 2;
     } else if (input[i] == '+' || input[i] == '-' || input[i] == '\0') {
-      nums[deg] += (!changed && deg ? 1 : tmp * prev_mark);
+      nums[deg] += (!changed && deg ? prev_mark : tmp * prev_mark);
       prev_mark = (input[i] == '+' ? 1 : -1);
-      tmp = deg = 0;
+      tmp = deg = after_dot = 0;
       if (input[i] == '\0')
         break;
     }

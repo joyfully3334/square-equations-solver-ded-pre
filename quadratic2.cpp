@@ -9,7 +9,7 @@ int input_coef(double *coef, char name);
 
 int read_coef(double *a, double *b, double *c);
 
-void coef_err_handler(int read_result);
+int coef_err_handler(int read_result);
 
 int zero_comp(double num);
 
@@ -19,7 +19,8 @@ void print_result(double x1, double x2);
 
 int main() {
   double a = 0., b = 0., c = 0.;
-  coef_err_handler(read_coef(&a, &b, &c));
+  if (coef_err_handler(read_coef(&a, &b, &c)))
+    return 1;
 
   printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", a,
          (b >= 0 ? '+' : '-'), fabs(b),
@@ -79,14 +80,15 @@ int read_coef(double *a, double *b, double *c) {
   return 0;
 }
 
-void coef_err_handler(int read_result) {
+int coef_err_handler(int read_result) {
   if (read_result == 1) {
     printf("Incorrect input data: Provided symbols is not a number\n");
-    exit(EXIT_FAILURE);
+    return 1;
   } else if (read_result == 2) {
     printf("Incorrect input data: Provided number is not finite\n");
-    exit(EXIT_FAILURE);
+    return 1;
   }
+  return 0;
 }
 
 int zero_comp(double num) { return (fabs(num - 0.) <= EPS); }

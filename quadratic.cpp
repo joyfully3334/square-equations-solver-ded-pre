@@ -25,7 +25,11 @@ int CoefErrHandler(INPUT_ERRORS read_result);
 
 int ZeroComp(double num);
 
+void SolveEquation(SquareEquation *quad);
+
 void SolveQuadratic(SquareEquation *quad);
+
+void SolveLinear(SquareEquation *quad);
 
 int PrintResult(SquareEquation quad);
 
@@ -38,7 +42,7 @@ int main() {
          (quad1.b >= 0 ? '+' : '-'), fabs(quad1.b),
          (quad1.c >= 0 ? '+' : '-'), fabs(quad1.c));
 
-  SolveQuadratic(&quad1);
+  SolveEquation(&quad1);
   if (PrintResult(quad1))
     return 1;
 
@@ -90,21 +94,19 @@ int ZeroComp(double num) {
 }
 
 
+void SolveEquation(SquareEquation *quad) {
+  assert(quad != NULL);
+  if (ZeroComp(quad->a) == 0)
+    SolveLinear(quad);
+  else
+    SolveQuadratic(quad);
+}
+
 void SolveQuadratic(SquareEquation *quad) {
   assert(quad != NULL);
   double diskr = quad->b * quad->b - 4 * quad->a * quad->c;
   double sq_diskr = sqrt(diskr);
-  if (ZeroComp(quad->a) == 0) {
-    if (ZeroComp(quad->b) == 0) {
-      if (ZeroComp(quad->c) == 0)
-        quad->number_of_solutions = inf_solutions;
-      else
-        quad->number_of_solutions = zero_solutions;
-    } else {
-      quad->x1 = -quad->c / quad->b;
-      quad->number_of_solutions = one_solution;
-    }
-  } else if (ZeroComp(diskr) < 0) {
+  if (ZeroComp(diskr) < 0) {
     quad->number_of_solutions = zero_solutions;
   } else if (ZeroComp(diskr) == 0) {
     quad->x1 = -quad->b / 2 / quad->a;
@@ -113,6 +115,19 @@ void SolveQuadratic(SquareEquation *quad) {
     quad->x1 = (-quad->b - sq_diskr) / 2 / quad->a;
     quad->x2 = (-quad->b + sq_diskr) / 2 / quad->a;
     quad->number_of_solutions = two_solutions;
+  }
+}
+
+void SolveLinear(SquareEquation *quad) {
+  assert(quad != NULL);
+  if (ZeroComp(quad->b) == 0) {
+    if (ZeroComp(quad->c) == 0)
+      quad->number_of_solutions = inf_solutions;
+    else
+      quad->number_of_solutions = zero_solutions;
+  } else {
+    quad->x1 = -quad->c / quad->b;
+    quad->number_of_solutions = one_solution;
   }
 }
 

@@ -52,7 +52,7 @@ enum INPUT_ERRORS Read_Coef(double *coef, char name) {
   return no_input_errors;
 }
 
-INPUT_ERRORS Read_Input(struct SquareEquation *quad) {
+enum INPUT_ERRORS Read_Input(struct SquareEquation *quad) {
   enum INPUT_ERRORS ret_val = Read_Coef(&quad->a, 'a');
   if (ret_val)
     return ret_val;
@@ -113,19 +113,19 @@ void Solve_Quadratic(struct SquareEquation *quad) {
 
 void Print_Result(struct SquareEquation quad) {
   switch (quad.number_of_solutions) {
-  case zero_solutions: 
-    printf("There is no solution for this square equation\n");
-    break;
-  case one_solution:
-    printf("Solution has found: x = %lf\n", quad.x1);
-    break;
-  case two_solutions:
-    printf("Solution has found: x1 = %lf, x2 = %lf\n", quad.x1, quad.x2);
-    break;
-  case inf_solutions:
-    printf("Every possible x is allowed for this equation\n");
-    break;
-  default:
-    break;
+    case zero_solutions: 
+      printf("There is no solution for this square equation\n");
+      break;
+    case one_solution:
+      printf("Solution has found: x = %lf\n", quad.x1);
+      break;
+    case two_solutions:
+      printf("Solution has found: x1 = %lf, x2 = %lf\n", quad.x1, quad.x2);
+      break;
+    case inf_solutions:
+      printf("Every possible x is allowed for this equation\n");
+      break;
+    default:
+      break;
   }
 }

@@ -11,25 +11,25 @@ enum AMOUNT_OF_SOLUTIONS {
 };
 const double EPS = 1e-5;
 
-enum INPUT_ERRORS ReadCoef(double *coef, char name);
+struct SquareEquation {
+  double a, b, c, x1, x2;
+  AMOUNT_OF_SOLUTIONS number_of_solutions;
+};
 
-enum INPUT_ERRORS ReadInput(struct SquareEquation *quad);
+INPUT_ERRORS ReadCoef(double *coef, char name);
 
-int CoefErrHandler(enum INPUT_ERRORS read_result);
+INPUT_ERRORS ReadInput(SquareEquation *quad);
+
+int CoefErrHandler(INPUT_ERRORS read_result);
 
 int ZeroComp(double num);
 
-void SolveQuadratic(struct SquareEquation *quad);
+void SolveQuadratic(SquareEquation *quad);
 
-void PrintResult(struct SquareEquation quad);
-
-struct SquareEquation {
-  double a, b, c, x1, x2;
-  enum AMOUNT_OF_SOLUTIONS number_of_solutions;
-};
+void PrintResult(SquareEquation quad);
 
 int main() {
-  struct SquareEquation quad1 = {0., 0., 0., 0., 0., zero_solutions};
+  SquareEquation quad1 = {0., 0., 0., 0., 0., zero_solutions};
   if (CoefErrHandler(ReadInput(&quad1)))
     return 1;
 
@@ -43,7 +43,7 @@ int main() {
   return 0;
 }
 
-enum INPUT_ERRORS ReadCoef(double *coef, char name) {
+INPUT_ERRORS ReadCoef(double *coef, char name) {
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef))
     return not_a_number;
@@ -52,8 +52,8 @@ enum INPUT_ERRORS ReadCoef(double *coef, char name) {
   return no_input_errors;
 }
 
-enum INPUT_ERRORS ReadInput(struct SquareEquation *quad) {
-  enum INPUT_ERRORS ret_val = ReadCoef(&quad->a, 'a');
+INPUT_ERRORS ReadInput(SquareEquation *quad) {
+  INPUT_ERRORS ret_val = ReadCoef(&quad->a, 'a');
   if (ret_val)
     return ret_val;
   ret_val = ReadCoef(&quad->b, 'b');
@@ -65,7 +65,7 @@ enum INPUT_ERRORS ReadInput(struct SquareEquation *quad) {
   return no_input_errors;
 }
 
-int CoefErrHandler(enum INPUT_ERRORS read_result) {
+int CoefErrHandler(INPUT_ERRORS read_result) {
   if (read_result == not_a_number) {
     printf("Incorrect input data: Provided symbols is not a number\n");
     return 1;
@@ -86,7 +86,7 @@ int ZeroComp(double num) {
 }
 
 
-void SolveQuadratic(struct SquareEquation *quad) {
+void SolveQuadratic(SquareEquation *quad) {
   double diskr = quad->b * quad->b - 4 * quad->a * quad->c;
   double sq_diskr = sqrt(diskr);
   if (ZeroComp(quad->a) == 0) {
@@ -111,7 +111,7 @@ void SolveQuadratic(struct SquareEquation *quad) {
   }
 }
 
-void PrintResult(struct SquareEquation quad) {
+void PrintResult(SquareEquation quad) {
   switch (quad.number_of_solutions) {
     case zero_solutions: 
       printf("There is no solution for this square equation\n");

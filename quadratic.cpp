@@ -26,7 +26,7 @@ int ZeroComp(double num);
 
 void SolveQuadratic(SquareEquation *quad);
 
-void PrintResult(SquareEquation quad);
+int PrintResult(SquareEquation quad);
 
 int main() {
   SquareEquation quad1 = {0., 0., 0., 0., 0., zero_solutions};
@@ -38,7 +38,8 @@ int main() {
          (quad1.c >= 0 ? '+' : '-'), fabs(quad1.c));
 
   SolveQuadratic(&quad1);
-  PrintResult(quad1);
+  if (PrintResult(quad1))
+    return 1;
 
   return 0;
 }
@@ -111,7 +112,7 @@ void SolveQuadratic(SquareEquation *quad) {
   }
 }
 
-void PrintResult(SquareEquation quad) {
+int PrintResult(SquareEquation quad) {
   switch (quad.number_of_solutions) {
     case zero_solutions: 
       printf("There is no solution for this square equation\n");
@@ -126,6 +127,8 @@ void PrintResult(SquareEquation quad) {
       printf("Every possible x is allowed for this equation\n");
       break;
     default:
-      break;
+      printf("An error occured in PrintResult function");
+      return 1;
   }
+  return 0;
 }

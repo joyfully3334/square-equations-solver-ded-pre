@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,6 +46,7 @@ int main() {
 }
 
 INPUT_ERRORS ReadCoef(double *coef, char name) {
+  assert(coef != NULL);
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef))
     return not_a_number;
@@ -54,6 +56,7 @@ INPUT_ERRORS ReadCoef(double *coef, char name) {
 }
 
 INPUT_ERRORS ReadInput(SquareEquation *quad) {
+  assert(quad != NULL);
   INPUT_ERRORS ret_val = ReadCoef(&quad->a, 'a');
   if (ret_val)
     return ret_val;
@@ -88,6 +91,7 @@ int ZeroComp(double num) {
 
 
 void SolveQuadratic(SquareEquation *quad) {
+  assert(quad != NULL);
   double diskr = quad->b * quad->b - 4 * quad->a * quad->c;
   double sq_diskr = sqrt(diskr);
   if (ZeroComp(quad->a) == 0) {

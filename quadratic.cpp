@@ -3,12 +3,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum INPUT_ERRORS { no_input_errors = 0, not_a_number = 1, not_finite = 2 };
+enum INPUT_ERRORS {
+  no_input_errors = 0,
+  not_a_number    = 1,
+  not_finite      = 2
+};
 enum AMOUNT_OF_SOLUTIONS {
-  zero_solutions = 0,
-  one_solution   = 1,
-  two_solutions  = 2,
-  inf_solutions  = 3,
+  undefined_solutions = -1,
+  zero_solutions      =  0,
+  one_solution        =  1,
+  two_solutions       =  2,
+  inf_solutions       =  3,
 };
 const double EPS = 1e-5;
 
@@ -34,7 +39,7 @@ void SolveLinear(SquareEquation *quad);
 int PrintResult(SquareEquation quad);
 
 int main() {
-  SquareEquation quad1 = {0., 0., 0., 0., 0., zero_solutions};
+  SquareEquation quad1 = {0., 0., 0., 0., 0., undefined_solutions};
   if (CoefErrHandler(ReadInput(&quad1)))
     return 1;
 
@@ -146,7 +151,7 @@ int PrintResult(SquareEquation quad) {
       printf("Every possible x is allowed for this equation\n");
       break;
     default:
-      printf("An error occured in PrintResult function");
+      printf("An error occured in PrintResult function: Undefined amount of solutions\n");
       return 1;
   }
   return 0;

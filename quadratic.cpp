@@ -55,7 +55,7 @@ int main() {
 }
 
 INPUT_ERRORS ReadCoef(double *coef, char name) {
-  assert(coef != NULL);
+  assert(coef);
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef))
     return not_a_number;
@@ -65,7 +65,7 @@ INPUT_ERRORS ReadCoef(double *coef, char name) {
 }
 
 INPUT_ERRORS ReadInput(SquareEquation *quad) {
-  assert(quad != NULL);
+  assert(quad);
   INPUT_ERRORS ret_val = ReadCoef(&quad->a, 'a');
   if (ret_val)
     return ret_val;
@@ -100,7 +100,7 @@ int ZeroComp(double num) {
 
 
 void SolveEquation(SquareEquation *quad) {
-  assert(quad != NULL);
+  assert(quad);
   if (ZeroComp(quad->a) == 0)
     SolveLinear(quad);
   else
@@ -108,7 +108,7 @@ void SolveEquation(SquareEquation *quad) {
 }
 
 void SolveQuadratic(SquareEquation *quad) {
-  assert(quad != NULL);
+  assert(quad);
   double diskr = quad->b * quad->b - 4 * quad->a * quad->c;
   double sq_diskr = sqrt(diskr);
   if (ZeroComp(diskr) < 0) {
@@ -124,7 +124,7 @@ void SolveQuadratic(SquareEquation *quad) {
 }
 
 void SolveLinear(SquareEquation *quad) {
-  assert(quad != NULL);
+  assert(quad);
   if (ZeroComp(quad->b) == 0) {
     if (ZeroComp(quad->c) == 0)
       quad->number_of_solutions = inf_solutions;

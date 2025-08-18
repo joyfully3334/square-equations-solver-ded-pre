@@ -8,6 +8,10 @@ enum INPUT_ERRORS {
   not_a_number    = 1,
   not_finite      = 2
 };
+enum PRINT_RESULTS_ERRORS {
+  no_print_results_errors       = 0,
+  undefined_amount_of_solutions = 1,
+};
 enum AMOUNT_OF_SOLUTIONS {
   undefined_solutions = -1,
   zero_solutions      =  0,
@@ -36,7 +40,7 @@ void SolveQuadratic(SquareEquation *quad);
 
 void SolveLinear(SquareEquation *quad);
 
-int PrintResult(SquareEquation quad);
+PRINT_RESULTS_ERRORS PrintResult(SquareEquation quad);
 
 int main() {
   SquareEquation quad1 = {0., 0., 0., 0., 0., undefined_solutions};
@@ -136,7 +140,7 @@ void SolveLinear(SquareEquation *quad) {
   }
 }
 
-int PrintResult(SquareEquation quad) {
+PRINT_RESULTS_ERRORS PrintResult(SquareEquation quad) {
   switch (quad.number_of_solutions) {
     case zero_solutions: 
       printf("There is no solution for this square equation\n");
@@ -152,7 +156,7 @@ int PrintResult(SquareEquation quad) {
       break;
     default:
       printf("An error occured in PrintResult function: Undefined amount of solutions\n");
-      return 1;
+      return undefined_amount_of_solutions;
   }
-  return 0;
+  return no_print_results_errors;
 }

@@ -38,9 +38,9 @@ void RemoveNegativeZero(double *num);
 
 void SolveEquation(SquareEquation *quad);
 
-void SolveQuadratic(SquareEquation *quad);
+void GetQuadraticSolution(SquareEquation *quad);
 
-void SolveLinear(SquareEquation *quad);
+void GetLinearSolution(SquareEquation *quad);
 
 PRINT_RESULTS_ERRORS PrintResult(SquareEquation quad);
 
@@ -111,14 +111,14 @@ void RemoveNegativeZero(double *num) {
 void SolveEquation(SquareEquation *quad) {
   assert(quad);
   if (ZeroComp(quad->a) == 0)
-    SolveLinear(quad);
+    GetLinearSolution(quad);
   else
-    SolveQuadratic(quad);
+    GetQuadraticSolution(quad);
   RemoveNegativeZero(&quad->x1);
   RemoveNegativeZero(&quad->x2);
 }
 
-void SolveQuadratic(SquareEquation *quad) {
+void GetQuadraticSolution(SquareEquation *quad) {
   assert(quad);
   double diskr = quad->b * quad->b - 4 * quad->a * quad->c;
   double sq_diskr = sqrt(diskr);
@@ -134,7 +134,7 @@ void SolveQuadratic(SquareEquation *quad) {
   }
 }
 
-void SolveLinear(SquareEquation *quad) {
+void GetLinearSolution(SquareEquation *quad) {
   assert(quad);
   if (ZeroComp(quad->b) == 0) {
     if (ZeroComp(quad->c) == 0)

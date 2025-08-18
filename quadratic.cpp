@@ -34,6 +34,8 @@ int CoefErrHandler(INPUT_ERRORS read_result);
 
 int ZeroComp(double num);
 
+void RemoveNegativeZero(double *num);
+
 void SolveEquation(SquareEquation *quad);
 
 void SolveQuadratic(SquareEquation *quad);
@@ -102,6 +104,9 @@ int ZeroComp(double num) {
     return 1;
 }
 
+void RemoveNegativeZero(double *num) {
+  *num = ((*num == -0.) ? 0. : *num);
+}
 
 void SolveEquation(SquareEquation *quad) {
   assert(quad);
@@ -109,6 +114,8 @@ void SolveEquation(SquareEquation *quad) {
     SolveLinear(quad);
   else
     SolveQuadratic(quad);
+  RemoveNegativeZero(&quad->x1);
+  RemoveNegativeZero(&quad->x2);
 }
 
 void SolveQuadratic(SquareEquation *quad) {
@@ -154,8 +161,9 @@ PRINT_RESULTS_ERRORS PrintResult(SquareEquation quad) {
     case inf_solutions:
       printf("Every possible x is allowed for this equation\n");
       break;
+    case undefined_solutions:
     default:
-      printf("An error occured in PrintResult function: Undefined amount of solutions\n");
+      printf("Invalid arguments in PrintResult function: Undefined amount of solutions\n");
       return undefined_amount_of_solutions;
   }
   return no_print_results_errors;

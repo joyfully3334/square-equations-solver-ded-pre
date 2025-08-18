@@ -38,9 +38,12 @@ void RemoveNegativeZero(double *num);
 
 void SolveEquation(SquareEquation *quad);
 
-void GetQuadraticSolution(SquareEquation *quad);
+void GetQuadraticSolution(const double a, const double b, const double c,
+                          double *x1, double *x2,
+                          AMOUNT_OF_SOLUTIONS *number_of_solutions);
 
-void GetLinearSolution(SquareEquation *quad);
+void GetLinearSolution(const double b, const double c, double *x1,
+                  AMOUNT_OF_SOLUTIONS *number_of_solutions);
 
 PRINT_RESULTS_ERRORS PrintResult(SquareEquation quad);
 
@@ -105,45 +108,50 @@ int ZeroComp(double num) {
 }
 
 void RemoveNegativeZero(double *num) {
-  *num = ((*num == -0.) ? 0. : *num);
+  *num = (ZeroComp(*num) ? *num : fabs(*num));
 }
 
 void SolveEquation(SquareEquation *quad) {
   assert(quad);
   if (ZeroComp(quad->a) == 0)
-    GetLinearSolution(quad);
+    GetLinearSolution(quad->b, quad->c, &quad->x1, &quad->number_of_solutions);
   else
-    GetQuadraticSolution(quad);
+    GetQuadraticSolution(quad->a, quad->b, quad->c,
+                         &quad->x1, &quad->x2,
+                         &quad->number_of_solutions);
   RemoveNegativeZero(&quad->x1);
   RemoveNegativeZero(&quad->x2);
 }
 
-void GetQuadraticSolution(SquareEquation *quad) {
-  assert(quad);
-  double diskr = quad->b * quad->b - 4 * quad->a * quad->c;
+void GetQuadraticSolution(const double a, const double b, const double c,
+                          double *x1, double *x2,
+                          AMOUNT_OF_SOLUTIONS *number_of_solutions) {
+  assert(x1 && x2 && number_of_solutions);
+  double diskr = b * b - 4 * a * c;
   double sq_diskr = sqrt(diskr);
   if (ZeroComp(diskr) < 0) {
-    quad->number_of_solutions = zero_solutions;
+    *number_of_solutions = zero_solutions;
   } else if (ZeroComp(diskr) == 0) {
-    quad->x1 = -quad->b / 2 / quad->a;
-    quad->number_of_solutions = one_solution;
+    *x1 = -b / 2 / a;
+    *number_of_solutions = one_solution;
   } else {
-    quad->x1 = (-quad->b - sq_diskr) / 2 / quad->a;
-    quad->x2 = (-quad->b + sq_diskr) / 2 / quad->a;
-    quad->number_of_solutions = two_solutions;
+    *x1 = (-b - sq_diskr) / 2 / a;
+    *x2 = (-b + sq_diskr) / 2 / a;
+    *number_of_solutions = two_solutions;
   }
 }
 
-void GetLinearSolution(SquareEquation *quad) {
-  assert(quad);
-  if (ZeroComp(quad->b) == 0) {
-    if (ZeroComp(quad->c) == 0)
-      quad->number_of_solutions = inf_solutions;
+void GetLinearSolution(const double b, const double c, double *x1,
+                  AMOUNT_OF_SOLUTIONS *number_of_solutions) {
+  assert(x1  && number_of_solutions);
+  if (ZeroComp(b) == 0) {
+    if (ZeroComp(c) == 0)
+      *number_of_solutions = inf_solutions;
     else
-      quad->number_of_solutions = zero_solutions;
+      *number_of_solutions = zero_solutions;
   } else {
-    quad->x1 = -quad->c / quad->b;
-    quad->number_of_solutions = one_solution;
+    *x1 = -c / b;
+    *number_of_solutions = one_solution;
   }
 }
 

@@ -26,13 +26,13 @@ struct SquareEquation {
   AMOUNT_OF_SOLUTIONS number_of_solutions;
 };
 
-INPUT_ERRORS ReadCoef(double *coef, char name);
+INPUT_ERRORS ReadCoef(double *coef, const char name);
 
 INPUT_ERRORS ReadInput(SquareEquation *quad);
 
-int CoefErrHandler(INPUT_ERRORS read_result);
+int CoefErrHandler(const INPUT_ERRORS read_result);
 
-int ZeroComp(double num);
+int ZeroComp(const double num);
 
 void RemoveNegativeZero(double *num);
 
@@ -45,7 +45,7 @@ void GetQuadraticSolution(const double a, const double b, const double c,
 void GetLinearSolution(const double b, const double c, double *x1,
                   AMOUNT_OF_SOLUTIONS *number_of_solutions);
 
-PRINT_RESULTS_ERRORS PrintResult(SquareEquation quad);
+PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad);
 
 int main() {
   SquareEquation quad1 = {0., 0., 0., 0., 0., undefined_solutions};
@@ -63,7 +63,7 @@ int main() {
   return 0;
 }
 
-INPUT_ERRORS ReadCoef(double *coef, char name) {
+INPUT_ERRORS ReadCoef(double *coef, const char name) {
   assert(coef);
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef))
@@ -87,7 +87,7 @@ INPUT_ERRORS ReadInput(SquareEquation *quad) {
   return no_input_errors;
 }
 
-int CoefErrHandler(INPUT_ERRORS read_result) {
+int CoefErrHandler(const INPUT_ERRORS read_result) {
   if (read_result == not_a_number) {
     printf("Incorrect input data: Provided symbols is not a number\n");
     return 1;
@@ -98,7 +98,7 @@ int CoefErrHandler(INPUT_ERRORS read_result) {
   return 0;
 }
 
-int ZeroComp(double num) {
+int ZeroComp(const double num) {
   if (num < -EPS)
     return -1;
   else if (fabs(num - 0.) <= EPS)
@@ -155,7 +155,7 @@ void GetLinearSolution(const double b, const double c, double *x1,
   }
 }
 
-PRINT_RESULTS_ERRORS PrintResult(SquareEquation quad) {
+PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad) {
   switch (quad.number_of_solutions) {
     case zero_solutions: 
       printf("There is no solution for this square equation\n");

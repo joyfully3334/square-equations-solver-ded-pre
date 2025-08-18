@@ -4,7 +4,7 @@
 
 int main() {
   SquareEquation quad1 = {0., 0., 0., 0., 0., undefined_solutions};
-  if (CoefErrHandler(ReadInput(&quad1)))
+  if (InputErrorHandler(ReadInput(&quad1)))
     return 1;
 
   printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", quad1.a,

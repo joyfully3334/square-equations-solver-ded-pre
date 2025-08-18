@@ -25,7 +25,7 @@ INPUT_ERRORS ReadCoef(double *coef, const char name);
 
 INPUT_ERRORS ReadInput(SquareEquation *quad);
 
-int CoefErrHandler(const INPUT_ERRORS read_result);
+int InputErrorHandler(const INPUT_ERRORS read_result);
 
 int ZeroComp(const double num);
 

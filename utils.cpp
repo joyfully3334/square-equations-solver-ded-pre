@@ -1,4 +1,4 @@
-#include "quadratic.h"
+#include "quadratic.hpp"
 #include <math.h>
 
 int ZeroComp(const double num) {

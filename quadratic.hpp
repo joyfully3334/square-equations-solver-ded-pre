@@ -1,3 +1,6 @@
+#ifndef QUADRATIC_IMPORTED
+#define QUADRATIC_IMPORTED
+
 enum AMOUNT_OF_SOLUTIONS {
   undefined_solutions = -1,
   zero_solutions      =  0,
@@ -11,6 +14,7 @@ struct SquareEquation {
   AMOUNT_OF_SOLUTIONS number_of_solutions;
 };
 
+void SolveEquation(SquareEquation *quad);
 
 enum PRINT_RESULTS_ERRORS {
   no_print_results_errors       = 0,
@@ -18,6 +22,6 @@ enum PRINT_RESULTS_ERRORS {
 };
 const double EPS = 1e-5;
 
-void SolveEquation(SquareEquation *quad);
-
 PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad);
+
+#endif

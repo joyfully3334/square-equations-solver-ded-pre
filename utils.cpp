@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <math.h>
 #include "quadratic.hpp"
+#include "quadratic_utils.hpp"
 
 int ZeroComp(const double num) {
   if (num < -EPS)

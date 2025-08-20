@@ -1,6 +1,6 @@
-#include "quadratic.hpp"
 #include <assert.h>
 #include <math.h>
+#include "quadratic.hpp"
 
 void SolveEquation(SquareEquation *quad) {
   assert(quad);

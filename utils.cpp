@@ -1,5 +1,5 @@
-#include "quadratic.hpp"
 #include <math.h>
+#include "quadratic.hpp"
 
 int ZeroComp(const double num) {
   if (num < -EPS)

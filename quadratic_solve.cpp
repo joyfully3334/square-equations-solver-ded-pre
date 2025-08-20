@@ -1,6 +1,6 @@
 #include <assert.h>
 #include <math.h>
-#include "quadratic.hpp"
+#include "quadratic_main.hpp"
 #include "quadratic_utils.hpp"
 
 void GetQuadraticSolution(const double a, const double b, const double c,

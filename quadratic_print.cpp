@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "quadratic.hpp"
+#include "quadratic_print.hpp"
 
 PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad) {
   switch (quad.number_of_solutions) {

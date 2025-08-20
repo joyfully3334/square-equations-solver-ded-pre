@@ -1,4 +1,4 @@
-#include "quadratic.hpp"
+#include "quadratic_main.hpp"
 
 enum INPUT_ERRORS {
   no_input_errors = 0,

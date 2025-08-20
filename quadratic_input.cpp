@@ -1,7 +1,6 @@
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>
-#include "quadratic.hpp"
 #include "quadratic_input.hpp"
 
 INPUT_ERRORS ReadCoef(double *coef, const char name) {

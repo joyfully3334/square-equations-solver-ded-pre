@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include "quadratic.hpp"
+#include "quadratic_input.hpp"
 
 int main() {
   SquareEquation quad1 = {0., 0., 0., 0., 0., undefined_solutions};

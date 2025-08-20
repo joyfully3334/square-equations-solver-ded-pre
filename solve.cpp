@@ -1,6 +1,14 @@
 #include <assert.h>
 #include <math.h>
 #include "quadratic.hpp"
+#include "quadratic_utils.hpp"
+
+void GetQuadraticSolution(const double a, const double b, const double c,
+                          double *x1, double *x2,
+                          AMOUNT_OF_SOLUTIONS *number_of_solutions);
+
+void GetLinearSolution(const double b, const double c, double *x1,
+                  AMOUNT_OF_SOLUTIONS *number_of_solutions);
 
 void SolveEquation(SquareEquation *quad) {
   assert(quad);

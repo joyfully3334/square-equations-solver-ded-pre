@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <math.h>
 #include "quadratic.hpp"
 
@@ -11,5 +12,6 @@ int ZeroComp(const double num) {
 }
 
 void RemoveNegativeZero(double *num) {
+  assert(num);
   *num = (ZeroComp(*num) ? *num : fabs(*num));
 }

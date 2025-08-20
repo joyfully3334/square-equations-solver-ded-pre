@@ -16,8 +16,10 @@ PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad) {
       printf("Every possible x is allowed for this equation\n");
       break;
     case undefined_solutions:
-    default:
       printf("Invalid arguments in PrintResult function: Undefined amount of solutions\n");
+      return undefined_amount_of_solutions;
+    default:
+      printf("Invalid arguments in PrintResult function: Unknown amount of solutions\n");
       return undefined_amount_of_solutions;
   }
   return no_print_results_errors;

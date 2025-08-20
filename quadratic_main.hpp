@@ -1,5 +1,5 @@
-#ifndef QUADRATIC_IMPORTED
-#define QUADRATIC_IMPORTED
+#ifndef QUADRATIC_MAIN_HPP
+#define QUADRATIC_MAIN_HPP
 
 enum AMOUNT_OF_SOLUTIONS {
   undefined_solutions = -1,

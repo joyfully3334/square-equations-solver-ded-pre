@@ -1,3 +1,6 @@
+#ifndef QUADRATIC_PRINT_HPP
+#define QUADRATIC_PRINT_HPP
+
 #include "quadratic_main.hpp"
 
 enum PRINT_RESULTS_ERRORS {
@@ -6,3 +9,5 @@ enum PRINT_RESULTS_ERRORS {
 };
 
 PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad);
+
+#endif

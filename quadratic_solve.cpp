@@ -26,7 +26,9 @@ void SolveEquation(SquareEquation *const quad) {
 void GetQuadraticSolution(const double a, const double b, const double c,
                           double *const x1, double *const x2,
                           AMOUNT_OF_SOLUTIONS *const number_of_solutions) {
-  assert(x1 && x2 && number_of_solutions);
+  assert(x1);
+  assert(x2);
+  assert(number_of_solutions);
   double diskr = b * b - 4 * a * c;
   double sq_diskr = sqrt(diskr);
   if (ZeroComp(diskr) < 0) {

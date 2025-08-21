@@ -34,10 +34,10 @@ INPUT_ERRORS ReadInput(SquareEquation *const quad) {
 
 int InputErrorHandler(const INPUT_ERRORS read_result) {
   if (read_result == not_a_number) {
-    printf("Incorrect input data: Provided symbols is not a number\n");
+    fprintf(stderr, "Incorrect input data: Provided symbols is not a number\n");
     return 1;
   } else if (read_result == not_finite) {
-    printf("Incorrect input data: Provided number is not finite\n");
+    fprintf(stderr, "Incorrect input data: Provided number is not finite\n");
     return 1;
   }
 

@@ -1,5 +1,5 @@
-#ifndef QUADRATIC_MAIN_HPP
-#define QUADRATIC_MAIN_HPP
+#ifndef QUADRATIC_EQUATION_HPP
+#define QUADRATIC_EQUATION_HPP
 
 enum AMOUNT_OF_SOLUTIONS {
   undefined_solutions = -1,
@@ -14,4 +14,4 @@ struct SquareEquation {
   AMOUNT_OF_SOLUTIONS number_of_solutions;
 };
 
-#endif // QUADRATIC_MAIN_HPP
+#endif // QUADRATIC_EQUATION_HPP

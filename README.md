@@ -2,7 +2,7 @@
 
 Pretty simple programm to solve square equations.
 
-## Fast running
+## Fast build and run
 
 Make sure that you have `g++` before running.
 

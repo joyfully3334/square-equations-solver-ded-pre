@@ -6,16 +6,19 @@
 
 INPUT_ERRORS ReadCoef(double *const coef, const char name) {
   assert(coef);
+
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef))
     return not_a_number;
   if (!isfinite(*coef))
     return not_finite;
+
   return no_input_errors;
 }
 
 INPUT_ERRORS ReadInput(SquareEquation *const quad) {
   assert(quad);
+
   INPUT_ERRORS ret_val = ReadCoef(&quad->a, 'a');
   if (ret_val)
     return ret_val;
@@ -25,6 +28,7 @@ INPUT_ERRORS ReadInput(SquareEquation *const quad) {
   ret_val = ReadCoef(&quad->c, 'c');
   if (ret_val)
     return ret_val;
+
   return no_input_errors;
 }
 
@@ -36,5 +40,6 @@ int InputErrorHandler(const INPUT_ERRORS read_result) {
     printf("Incorrect input data: Provided number is not finite\n");
     return 1;
   }
+
   return 0;
 }

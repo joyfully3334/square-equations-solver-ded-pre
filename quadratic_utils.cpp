@@ -16,5 +16,6 @@ int ZeroComp(const double num) {
 
 void RemoveNegativeZero(double *const num) {
   assert(num);
+
   *num = (ZeroComp(*num) ? *num : fabs(*num));
 }

@@ -45,7 +45,8 @@ void GetQuadraticSolution(const double a, const double b, const double c,
 
 void GetLinearSolution(const double b, const double c, double *const x1,
                   AMOUNT_OF_SOLUTIONS *const number_of_solutions) {
-  assert(x1  && number_of_solutions);
+  assert(x1);
+  assert(number_of_solutions);
   if (ZeroComp(b) == 0) {
     if (ZeroComp(c) == 0)
       *number_of_solutions = inf_solutions;

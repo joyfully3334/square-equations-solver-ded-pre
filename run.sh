@@ -11,7 +11,7 @@ NC='\033[0m'
 
 echo -e "${GRAY}--COMPILE--   $(date +%T:%N | head -c 11)${NC}"
 
-echo $(echo "$*" | awk -F'-a ' '{print $1}') "${flags}" | xargs g++ -o ./.tmp.out
+eval g++ -o ./.tmp.out $(echo "$*" | awk -F'-a ' '{print $1}') "${flags}"
 
 if [[ $? != 0 ]]; then
   echo -e "${RED}--COMPERR--   $(date +%T:%N | head -c 11)${NC}"
@@ -22,7 +22,7 @@ echo -e "${GREEN}--STARTED--   $(date +%T:%N | head -c 11)${NC}"
 
 if [[ "$*" =~ .*-a.+ ]]; then
   trap 'rm ./.tmp.out >/dev/null 2>&1; echo -e "\n${RED}--SIGKILL--   $(date +%T:%N | head -c 11)${NC}"; exit 1' SIGKILL SIGTERM SIGINT
-  echo "$*" | rev | awk -F' a-' '{print $1}' | rev | xargs ./.tmp.out
+  eval ./.tmp.out $(echo "$*" | rev | awk -F' a-' '{print $1}' | rev)
 else
   trap 'rm ./.tmp.out >/dev/null 2>&1; echo -e "\n${RED}--SIGKILL--   $(date +%T:%N | head -c 11)${NC}"; exit 1' SIGKILL SIGTERM SIGINT
   ./.tmp.out

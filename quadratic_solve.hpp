@@ -1,8 +1,8 @@
 #ifndef QUADRATIC_SOLVE_HPP
 #define QUADRATIC_SOLVE_HPP
 
-#include "quadratic_main.hpp"
+#include "quadratic_equation.hpp"
 
 void SolveEquation(SquareEquation *quad);
 
-#endif
+#endif // QUADRATIC_SOLVE_HPP

@@ -14,4 +14,4 @@ struct SquareEquation {
   AMOUNT_OF_SOLUTIONS number_of_solutions;
 };
 
-#endif
+#endif // QUADRATIC_MAIN_HPP

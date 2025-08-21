@@ -1,7 +1,7 @@
 #ifndef QUADRATIC_INPUT_HPP
 #define QUADRATIC_INPUT_HPP
 
-#include "quadratic_main.hpp"
+#include "quadratic_equation.hpp"
 
 enum INPUT_ERRORS {
   no_input_errors = 0,
@@ -15,4 +15,4 @@ INPUT_ERRORS ReadInput(SquareEquation *quad);
 
 int InputErrorHandler(const INPUT_ERRORS read_result);
 
-#endif
+#endif // QUADRATIC_INPUT_HPP

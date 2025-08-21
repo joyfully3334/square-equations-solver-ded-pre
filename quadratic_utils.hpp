@@ -5,4 +5,4 @@ int ZeroComp(const double num);
 
 void RemoveNegativeZero(double *num);
 
-#endif
+#endif // QUADRATIC_UTILS_HPP

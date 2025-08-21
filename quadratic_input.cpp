@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "quadratic_input.hpp"
 
-INPUT_ERRORS ReadCoef(double *coef, const char name) {
+INPUT_ERRORS ReadCoef(double *const coef, const char name) {
   assert(coef);
   printf("Enter %c: ", name);
   if (!scanf("%lf", coef))
@@ -13,7 +13,7 @@ INPUT_ERRORS ReadCoef(double *coef, const char name) {
   return no_input_errors;
 }
 
-INPUT_ERRORS ReadInput(SquareEquation *quad) {
+INPUT_ERRORS ReadInput(SquareEquation *const quad) {
   assert(quad);
   INPUT_ERRORS ret_val = ReadCoef(&quad->a, 'a');
   if (ret_val)

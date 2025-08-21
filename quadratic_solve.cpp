@@ -5,13 +5,13 @@
 #include "quadratic_utils.hpp"
 
 void GetQuadraticSolution(const double a, const double b, const double c,
-                          double *x1, double *x2,
-                          AMOUNT_OF_SOLUTIONS *number_of_solutions);
+                          double *const x1, double *const x2,
+                          AMOUNT_OF_SOLUTIONS *const number_of_solutions);
 
-void GetLinearSolution(const double b, const double c, double *x1,
-                  AMOUNT_OF_SOLUTIONS *number_of_solutions);
+void GetLinearSolution(const double b, const double c, double *const x1,
+                       AMOUNT_OF_SOLUTIONS *const number_of_solutions);
 
-void SolveEquation(SquareEquation *quad) {
+void SolveEquation(SquareEquation *const quad) {
   assert(quad);
   if (ZeroComp(quad->a) == 0)
     GetLinearSolution(quad->b, quad->c, &quad->x1, &quad->number_of_solutions);
@@ -24,8 +24,8 @@ void SolveEquation(SquareEquation *quad) {
 }
 
 void GetQuadraticSolution(const double a, const double b, const double c,
-                          double *x1, double *x2,
-                          AMOUNT_OF_SOLUTIONS *number_of_solutions) {
+                          double *const x1, double *const x2,
+                          AMOUNT_OF_SOLUTIONS *const number_of_solutions) {
   assert(x1 && x2 && number_of_solutions);
   double diskr = b * b - 4 * a * c;
   double sq_diskr = sqrt(diskr);
@@ -41,8 +41,8 @@ void GetQuadraticSolution(const double a, const double b, const double c,
   }
 }
 
-void GetLinearSolution(const double b, const double c, double *x1,
-                  AMOUNT_OF_SOLUTIONS *number_of_solutions) {
+void GetLinearSolution(const double b, const double c, double *const x1,
+                  AMOUNT_OF_SOLUTIONS *const number_of_solutions) {
   assert(x1  && number_of_solutions);
   if (ZeroComp(b) == 0) {
     if (ZeroComp(c) == 0)

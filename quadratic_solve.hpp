@@ -3,6 +3,6 @@
 
 #include "quadratic_equation.hpp"
 
-void SolveEquation(SquareEquation *quad);
+void SolveEquation(SquareEquation *const quad);
 
 #endif // QUADRATIC_SOLVE_HPP

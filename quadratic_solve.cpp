@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <math.h>
+
 #include "quadratic_equation.hpp"
 #include "quadratic_solve.hpp"
 #include "quadratic_utils.hpp"

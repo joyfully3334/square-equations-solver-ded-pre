@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #include "quadratic_print.hpp"
 
 PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad) {

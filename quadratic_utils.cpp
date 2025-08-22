@@ -31,8 +31,6 @@ int CheckFlag(int argc, char **argv, const char *flag) {
 }
 
 int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2) {
-  if (quad2.changed == 0)
-    return 0;
   if (DoubleComp(quad1.a, quad2.a) || DoubleComp(quad1.b, quad2.b) ||
       DoubleComp(quad1.c, quad2.c) ||
       DoubleComp(quad1.number_of_solutions, quad2.number_of_solutions))

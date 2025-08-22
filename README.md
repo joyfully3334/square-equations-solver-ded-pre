@@ -44,11 +44,9 @@ Example: `./build_and_run.sh ./*.cpp -a --self-check`
 All tests are located at tests.txt.
 
 Each line consists of test before '@' and answers after '@'.
-Character after '@' symbol stands for number of solutions.
-This character may be '0', '1', '2' or '!'(infinite).
-It is an error if character after '@' is invalid.
-Characters after '#' sign is ignored if '#' character
-appears after '@' character.
+First number after '@' symbol stands for number of solutions.
+This number may be '0', '1', '2' or '-1'(infinite).
+It is an error if number after '@' is invalid.
 
 Example:
 

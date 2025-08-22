@@ -11,12 +11,16 @@
 static int ExecuteProgramm();
 
 int main(int argc, char **argv) {
+  if (CheckFlag(argc, argv, "--slient")) {
+    printf("%s\n", "--Square equation solver--");
+  }
   if (!CheckFlag(argc, argv, "--help")) {
-    printf("%s\n%s\n%s\n%s\n",
+    printf("%s\n%s\n%s\n%s\n%s\n",
            "Usage: quadratic [options]",
            "Options:",
            "  --help       Display this information.",
-           "  --self-check Check tests from test.txt");
+           "  --self-check Check tests from test.txt",
+           "  --silent     Dont print welocme message");
   } else if (!CheckFlag(argc, argv, "--self-check")) {
     FILE *tests_fp = fopen("tests.txt", "r");
     if (!tests_fp) {

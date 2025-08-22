@@ -11,23 +11,28 @@ static int ReadOneTest(FILE *fp, SquareEquation *const quad);
 
 int ExecuteProgrammWithTesting(const char *const filename) {
   unsigned long int amount_of_lines = 0;
-  char ch = ' ';
-  FILE *fp = fopen(filename, "r");
-  while ((ch = (char)fgetc(fp)) != EOF) {
+  int ch = ' ';
+  FILE *tests_fp = fopen(filename, "r");
+  if (!tests_fp) {
+    fprintf(stderr, "\n");
+    return 1;
+}
+  while ((ch = fgetc(tests_fp)) != EOF) {
     if (ch == '\n')
       ++amount_of_lines;
   }
-  fclose(fp);
-  SquareEquation *quads = (SquareEquation *)malloc(sizeof(SquareEquation) * amount_of_lines);
+  fclose(tests_fp);
+  SquareEquation *quads = (SquareEquation *)calloc(amount_of_lines, sizeof(SquareEquation));
   ReadTests(filename, (int)amount_of_lines, quads);
   for (int i = 0; i < (int)amount_of_lines; ++i) {
     if (ExecuteProgrammTest(&quads[i])) {
-      fprintf(stderr, "Failed on test %d\n", i + 1);
+      fprintf(stderr, "\033[0;31mFailed on test %d\033[0m\n", i + 1);
       return 1;
     }
   }
   free(quads);
-  printf("All tests passed successfully\n");
+  quads = 0;
+  printf("\033[0;32mAll tests passed successfully\033[0m\n");
 
   return 0;
 }

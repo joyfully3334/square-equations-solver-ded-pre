@@ -12,6 +12,7 @@ enum AMOUNT_OF_SOLUTIONS {
 struct SquareEquation {
   double a, b, c, x1, x2;
   AMOUNT_OF_SOLUTIONS number_of_solutions;
+  int changed = 0;
 };
 
 #endif // QUADRATIC_EQUATION_HPP

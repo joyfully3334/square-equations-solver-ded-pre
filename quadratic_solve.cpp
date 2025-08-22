@@ -15,7 +15,7 @@ static void GetLinearSolution(const double b, const double c, double *const x1,
 void SolveEquation(SquareEquation *const quad) {
   assert(quad);
 
-  if (ZeroComp(quad->a) == 0)
+  if (DoubleComp(quad->a, 0) == 0)
     GetLinearSolution(quad->b, quad->c, &quad->x1, &quad->number_of_solutions);
   else
     GetQuadraticSolution(quad->a, quad->b, quad->c,
@@ -35,9 +35,9 @@ void GetQuadraticSolution(const double a, const double b, const double c,
 
   double diskr = b * b - 4 * a * c;
   double sq_diskr = sqrt(diskr);
-  if (ZeroComp(diskr) < 0) {
+  if (DoubleComp(diskr, 0) < 0) {
     *number_of_solutions = zero_solutions;
-  } else if (ZeroComp(diskr) == 0) {
+  } else if (DoubleComp(diskr, 0) == 0) {
     *x1 = -b / 2 / a;
     *number_of_solutions = one_solution;
   } else {
@@ -52,8 +52,8 @@ void GetLinearSolution(const double b, const double c, double *const x1,
   assert(x1);
   assert(number_of_solutions);
 
-  if (ZeroComp(b) == 0) {
-    if (ZeroComp(c) == 0)
+  if (DoubleComp(b, 0) == 0) {
+    if (DoubleComp(c, 0) == 0)
       *number_of_solutions = inf_solutions;
     else
       *number_of_solutions = zero_solutions;

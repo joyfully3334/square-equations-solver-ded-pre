@@ -34,7 +34,10 @@ Example: `./run.sh ./*.cpp -a --some-flag`
 To run programm in testing mode you need to
 start executable with `--self-check` flag.
 
-Example: `./quadratic --self-check`
+If you are useing run.sh script you need
+tor pass `--self-check` flag after `-a` flag.
+
+Example: `./run.sh ./*.cpp -a --self-check`
 
 ### Editing tests
 

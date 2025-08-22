@@ -7,6 +7,8 @@ int DoubleComp(const double num1, const double num2);
 
 void RemoveNegativeZero(double *const num);
 
-int ReadTests(const char *const  filename, const int MAX_SIZE, SquareEquation quads[]);
+int CheckFlag(int argc, char **argv, const char *flag);
+
+int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2);
 
 #endif // QUADRATIC_UTILS_HPP

@@ -11,7 +11,13 @@
 static int ExecuteProgramm();
 
 int main(int argc, char **argv) {
-  if (!CheckFlag(argc, argv, "--self-check")) {
+  if (!CheckFlag(argc, argv, "--help")) {
+    printf("%s\n%s\n%s\n%s\n",
+           "Usage: quadratic [options]",
+           "Options:",
+           "  --help       Display this information.",
+           "  --self-check Check tests from test.txt");
+  } else if (!CheckFlag(argc, argv, "--self-check")) {
     FILE *tests_fp = fopen("tests.txt", "r");
     if (!tests_fp) {
       fprintf(stderr, "Unable to open test.txt file");
@@ -26,7 +32,7 @@ int main(int argc, char **argv) {
 }
 
 static int ExecuteProgramm() {
-  SquareEquation quad1 = {0., 0., 0., 0., 0., undefined_solutions};
+  SquareEquation quad1;
   if (InputErrorHandler(ReadInput(&quad1)))
     return 1;
 

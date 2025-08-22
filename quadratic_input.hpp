@@ -13,6 +13,8 @@ INPUT_ERRORS ReadCoef(double *const coef, const char name);
 
 INPUT_ERRORS ReadInput(SquareEquation *const quad);
 
+INPUT_ERRORS ParseInput(SquareEquation *const quad);
+
 int InputErrorHandler(const INPUT_ERRORS read_result);
 
 #endif // QUADRATIC_INPUT_HPP

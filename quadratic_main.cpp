@@ -8,19 +8,18 @@
 #include "quadratic_utils.hpp"
 #include "quadratic_tests.hpp"
 
-static int ExecuteProgramm();
-
 int main(int argc, char **argv) {
   if (CheckFlag(argc, argv, "--slient")) {
     printf("%s\n", "--Square equation solver--");
   }
   if (!CheckFlag(argc, argv, "--help")) {
-    printf("%s\n%s\n%s\n%s\n%s\n",
+    printf("%s\n%s\n%s\n%s\n%s\n%s\n",
            "Usage: quadratic [options]",
            "Options:",
            "  --help       Display this information.",
            "  --self-check Check tests from test.txt",
-           "  --silent     Dont print welocme message");
+           "  --silent     Dont print welocme message",
+           "  --parse      Use parsing version of programm");
   } else if (!CheckFlag(argc, argv, "--self-check")) {
     FILE *tests_fp = fopen("tests.txt", "r");
     if (!tests_fp) {
@@ -29,25 +28,26 @@ int main(int argc, char **argv) {
     }
     return ExecuteProgrammWithTesting("tests.txt");
   } else {
-    return ExecuteProgramm();
-  }
+    SquareEquation quad1;
+    if (!CheckFlag(argc, argv, "--parse")) {
+      if (InputErrorHandler(ParseInput(&quad1)))
+        return 1;
+    } else {
+      if (InputErrorHandler(ReadInput(&quad1)))
+        return 1;
+    }
 
-  return 0;
+
+    printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", quad1.a,
+          (quad1.b >= 0 ? '+' : '-'), fabs(quad1.b),
+          (quad1.c >= 0 ? '+' : '-'), fabs(quad1.c));
+
+    SolveEquation(&quad1);
+    if (PrintResult(quad1))
+      return 1;
+
+    return 0;
 }
 
-static int ExecuteProgramm() {
-  SquareEquation quad1;
-  if (InputErrorHandler(ReadInput(&quad1)))
-    return 1;
-
-  printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", quad1.a,
-         (quad1.b >= 0 ? '+' : '-'), fabs(quad1.b),
-         (quad1.c >= 0 ? '+' : '-'), fabs(quad1.c));
-
-  SolveEquation(&quad1);
-  if (PrintResult(quad1))
-    return 1;
-
-  return 0;
+return 0;
 }
-

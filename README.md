@@ -34,7 +34,7 @@ Example: `./build_and_run.sh ./*.cpp -a --some-flag`
 To run programm in testing mode you need to
 start executable with `--self-check` flag.
 
-If you are useing build_and_run.sh script you need
+If you are using build_and_run.sh script you need
 tor pass `--self-check` flag after `-a` flag.
 
 Example: `./build_and_run.sh ./*.cpp -a --self-check`
@@ -47,16 +47,3 @@ Each line consists of test before '@' and answers after '@'.
 First number after '@' symbol stands for number of solutions.
 This number may be '0', '1', '2' or '-1'(infinite).
 It is an error if number after '@' is invalid.
-
-Example:
-
-```txt
-x^2 + 2x + 1 @1 -1
-x^2 + 0.5x @2 0
-x + 3 @1 -3
-3 @!
-0 @0
-x^2 + 5x - 3 @ 2 3 #ERROR
-```
-
-In this case ans0 and ans5 ignores.

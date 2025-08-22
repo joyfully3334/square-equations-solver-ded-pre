@@ -10,7 +10,7 @@ Then run in terminal theese lines of code one by one:
 ```bash
 git clone github.com/joyfully3334/square-equations-solver-ded-pre
 cd ~/square-equations-solver-ded-pre
-./run.sh ./*.cpp
+./build_and_run.sh ./*.cpp
 ```
 
 ## Building
@@ -25,7 +25,7 @@ cd ~/square-equations-solver-ded-pre
 
 You can provide flags to executable after `-a` flag.
 
-Example: `./run.sh ./*.cpp -a --some-flag`
+Example: `./build_and_run.sh ./*.cpp -a --some-flag`
 
 ## Testing
 
@@ -34,10 +34,10 @@ Example: `./run.sh ./*.cpp -a --some-flag`
 To run programm in testing mode you need to
 start executable with `--self-check` flag.
 
-If you are useing run.sh script you need
+If you are useing build_and_run.sh script you need
 tor pass `--self-check` flag after `-a` flag.
 
-Example: `./run.sh ./*.cpp -a --self-check`
+Example: `./build_and_run.sh ./*.cpp -a --self-check`
 
 ### Editing tests
 

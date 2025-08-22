@@ -39,12 +39,7 @@ int ExecuteProgrammWithTesting(const char *const filename) {
 
 int ExecuteProgrammTest(SquareEquation *const quad) {
   SquareEquation old_quad = *quad;
-  printf("%lf %lf %d\n", quad->x1, quad->x2, quad->number_of_solutions);
   SolveEquation(quad);
-  printf("T\n");
-  printf("%lf %lf\n", quad->x1, old_quad.x1);
-  printf("%lf %lf\n", quad->x2, old_quad.x2);
-  printf("%d %d\n", quad->number_of_solutions, old_quad.number_of_solutions);
   if (QuadraticComp(*quad, old_quad))
     return 1;
 

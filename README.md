@@ -2,10 +2,17 @@
 
 Pretty simple programm to solve square equations.
 
+## Options
+
+--help       Display this information.
+--self-check Check tests from test.txt.
+--silent     Dont print welocme message.
+--parse      Use parsing version of programm.
+
 ## Fast build and run
 
 Make sure that you have `g++` before running.
-Then run in terminal theese lines of code one by one:
+Then run in terminal theese lines of code:
 
 ```bash
 git clone github.com/joyfully3334/square-equations-solver-ded-pre
@@ -41,7 +48,8 @@ Example: `./build_and_run.sh ./*.cpp -a --self-check`
 
 ### Editing tests
 
-All tests are located at tests.txt.
+All tests are located at tests.txt for standard version
+and tests_parse.txt for parsing version.
 
 Each line consists of test before '@' and answers after '@'.
 First number after '@' symbol stands for number of solutions.

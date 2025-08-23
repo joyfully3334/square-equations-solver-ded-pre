@@ -9,6 +9,11 @@
 
 static int ReadOneTest(FILE *fp, SquareEquation *const quad);
 
+const char *RED = "\033[0;31m";
+const char *GREEN = "\033[0;32m";
+const char *NO_COLOR = "\033[0m";
+
+
 int ExecuteProgrammWithTesting(const char *const filename) {
   unsigned long int amount_of_lines = 0;
   int ch = ' ';
@@ -26,13 +31,17 @@ int ExecuteProgrammWithTesting(const char *const filename) {
   ReadTests(filename, (int)amount_of_lines, quads);
   for (int i = 0; i < (int)amount_of_lines; ++i) {
     if (ExecuteProgrammTest(&quads[i])) {
-      fprintf(stderr, "\033[0;31mFailed on test %d\033[0m\n", i + 1);
+      fprintf(stderr, "%s", RED);
+      fprintf(stderr, "Failed on test %d\n", i + 1);
+      fprintf(stderr, "%s", NO_COLOR);
       return 1;
     }
   }
   free(quads);
   quads = 0;
-  printf("\033[0;32mAll tests passed successfully\033[0m\n");
+  printf("%s", GREEN);
+  printf("All tests passed successfully\n");
+  printf("%s", NO_COLOR);
 
   return 0;
 }

@@ -9,7 +9,7 @@ INPUT_ERRORS ReadCoef(double *const coef, const char name) {
   assert(coef);
 
   printf("Enter %c: ", name);
-  if (!scanf("%lf", coef))
+  if (!scanf("%lg", coef))
     return not_a_number;
   if (!isfinite(*coef))
     return not_finite;
@@ -36,7 +36,7 @@ INPUT_ERRORS ReadInput(SquareEquation *const quad) {
 INPUT_ERRORS ParseInput(SquareEquation *const quad) {
   assert(quad);
 
-  const int MAX_LEN = 81;
+  const int MAX_LEN = 201;
   char input[MAX_LEN] = {};
   printf("Enter square equation (format: ax^2 + bx + c): ");
   fgets(input, MAX_LEN, stdin);

@@ -5,8 +5,10 @@
 
 int ReadTests(const char *const filename, const int MAX_SIZE, SquareEquation quads[]);
 
-int ExecuteProgrammTest(SquareEquation *const quad);
+int ParseTests(const char *const filename, const int MAX_SIZE, SquareEquation quads[]);
 
-int ExecuteProgrammWithTesting(const char *const filename);
+int RunStandardTest(SquareEquation *const quad);
+
+int ExecuteProgrammWithTesting();
 
 #endif // QUADRATIC_TESTS_HPP

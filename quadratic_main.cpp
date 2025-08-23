@@ -17,16 +17,16 @@ int main(int argc, char **argv) {
            "Usage: quadratic [options]",
            "Options:",
            "  --help       Display this information.",
-           "  --self-check Check tests from test.txt",
-           "  --silent     Dont print welocme message",
-           "  --parse      Use parsing version of programm");
+           "  --self-check Check tests from test.txt.",
+           "  --silent     Dont print welocme message.",
+           "  --parse      Use parsing version of programm.");
   } else if (!CheckFlag(argc, argv, "--self-check")) {
     FILE *tests_fp = fopen("tests.txt", "r");
     if (!tests_fp) {
       fprintf(stderr, "Unable to open test.txt file");
       return 1;
     }
-    return ExecuteProgrammWithTesting("tests.txt");
+    return ExecuteProgrammWithTesting();
   } else {
     SquareEquation quad1;
     if (!CheckFlag(argc, argv, "--parse")) {
@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
     }
 
 
-    printf("Solving equation: %lfx^2 %c %lfx %c %lf = 0\n", quad1.a,
+    printf("Solving equation: %lgx^2 %c %lgx %c %lg = 0\n", quad1.a,
           (quad1.b >= 0 ? '+' : '-'), fabs(quad1.b),
           (quad1.c >= 0 ? '+' : '-'), fabs(quad1.c));
 

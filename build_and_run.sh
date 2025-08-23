@@ -21,7 +21,7 @@ color_echo_with_time "${GRAY}" "--COMPILE--"
 eval g++ -o ./.tmp.out $(echo "$*" | awk -F'-a ' '{print $1}') "${flags}"
 
 if [[ $? != 0 ]]; then
-  color_echo_with_time "${RED}" "--COMPERR--"
+  color_echo_with_time "${RED}" "\n--COMPERR--"
   exit 1;
 fi
 
@@ -35,6 +35,6 @@ else
   ./.tmp.out
 fi
 
-color_echo_with_time "${RED}" "--STOPPED--"
+color_echo_with_time "${RED}" "\n--STOPPED--"
 
 rm ./.tmp.out >/dev/null 2>&1

@@ -34,6 +34,7 @@ int ExecuteProgrammWithTesting(const char *const filename) {
       fprintf(stderr, "%s", RED);
       fprintf(stderr, "Failed on test %d\n", i + 1);
       fprintf(stderr, "%s", NO_COLOR);
+      free(quads);
       return 1;
     }
   }

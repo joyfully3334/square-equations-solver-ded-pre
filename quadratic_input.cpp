@@ -34,8 +34,10 @@ INPUT_ERRORS ReadInput(SquareEquation *const quad) {
 }
 
 INPUT_ERRORS ParseInput(SquareEquation *const quad) {
+  assert(quad);
+
   const int MAX_LEN = 81;
-  char input[MAX_LEN];
+  char input[MAX_LEN] = {};
   printf("Enter square equation (format: ax^2 + bx + c): ");
   fgets(input, MAX_LEN, stdin);
   double tmp = 0;
@@ -59,7 +61,7 @@ INPUT_ERRORS ParseInput(SquareEquation *const quad) {
       nums[deg] += (!changed && deg ? prev_mark : tmp * prev_mark);
       prev_mark = (input[i] == '+' ? 1 : -1);
       tmp = 0.;
-      deg = after_dot = 0;
+      changed = deg = after_dot = 0;
       if (input[i] == '\0')
         break;
     }

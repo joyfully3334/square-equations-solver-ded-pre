@@ -1,0 +1,22 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[1,0],
+"classes.html":[1,1],
+"files.html":[2,0],
+"index.html":[],
+"md_README.html":[0],
+"md_README.html#autotoc_md1":[0,0],
+"md_README.html#autotoc_md2":[0,1],
+"md_README.html#autotoc_md3":[0,2],
+"md_README.html#autotoc_md4":[0,3],
+"md_README.html#autotoc_md5":[0,3,0],
+"md_README.html#autotoc_md6":[0,3,1],
+"pages.html":[],
+"quadratic__equation_8hpp_source.html":[2,0,0],
+"quadratic__input_8hpp_source.html":[2,0,1],
+"quadratic__print_8hpp_source.html":[2,0,2],
+"quadratic__solve_8hpp_source.html":[2,0,3],
+"quadratic__tests_8hpp_source.html":[2,0,4],
+"quadratic__utils_8hpp_source.html":[2,0,5],
+"structSquareEquation.html":[1,0,0]
+};

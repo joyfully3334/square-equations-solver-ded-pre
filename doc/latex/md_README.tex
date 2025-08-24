@@ -1,0 +1,59 @@
+\chapter{Square Equation Solver }
+\hypertarget{md_README}{}\label{md_README}\index{Square Equation Solver@{Square Equation Solver}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+
+
+Pretty simple programm to solve square equations.\hypertarget{md_README_autotoc_md1}{}\doxysection{\texorpdfstring{Options}{Options}}\label{md_README_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/-\/help\ \ \ \ \ \ \ Display\ this\ information.}
+\DoxyCodeLine{-\/-\/self-\/check\ Check\ tests\ from\ tests.txt\ and\ tests\_parse.}
+\DoxyCodeLine{-\/-\/silent\ \ \ \ \ Dont\ print\ welocme\ message.}
+\DoxyCodeLine{-\/-\/parse\ \ \ \ \ \ Use\ parsing\ version\ of\ programm.}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{Fast build and run}{Fast build and run}}\label{md_README_autotoc_md2}
+Make sure that you have {\ttfamily g++} before running. Then run in terminal these lines of code\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ github.com/joyfully3334/square-\/equations-\/solver-\/ded-\/pre}
+\DoxyCodeLine{cd\ \string~/square-\/equations-\/solver-\/ded-\/pre}
+\DoxyCodeLine{./build\_and\_run.sh\ ./*.cpp}
+
+\end{DoxyCode}
+
+
+You can provide flags to executable after {\ttfamily -\/a} flag.
+
+Example\+: {\ttfamily ./build\+\_\+and\+\_\+run.sh ./\texorpdfstring{$\ast$}{*}.cpp -\/a -\/-\/some-\/flag}\hypertarget{md_README_autotoc_md3}{}\doxysection{\texorpdfstring{Building}{Building}}\label{md_README_autotoc_md3}
+To build an executable you need to install {\ttfamily g++} compiler and then run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ github.com/joyfully3334/square-\/equations-\/solver-\/ded-\/pre}
+\DoxyCodeLine{cd\ \string~/square-\/equations-\/solver-\/ded-\/pre/}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+
+
+To clean executable and object files run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ \string~/square-\/equations-\/solver-\/ded-\/pre/}
+\DoxyCodeLine{make\ clean}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md4}{}\doxysection{\texorpdfstring{Testing}{Testing}}\label{md_README_autotoc_md4}
+\hypertarget{md_README_autotoc_md5}{}\doxysubsection{\texorpdfstring{Running tests}{Running tests}}\label{md_README_autotoc_md5}
+To run programm in testing mode you need to start executable with {\ttfamily -\/-\/self-\/check} flag.
+
+If you are using build\+\_\+and\+\_\+run.\+sh script you need tor pass {\ttfamily -\/-\/self-\/check} flag after {\ttfamily -\/a} flag.
+
+Example\+: {\ttfamily ./build\+\_\+and\+\_\+run.sh ./\texorpdfstring{$\ast$}{*}.cpp -\/a -\/-\/self-\/check}\hypertarget{md_README_autotoc_md6}{}\doxysubsection{\texorpdfstring{Editing tests}{Editing tests}}\label{md_README_autotoc_md6}
+All tests are located at tests.\+txt for standard version and tests\+\_\+parse.\+txt for parsing version.
+
+Each line consists of test before {\ttfamily @} and answers after {\ttfamily @}. First number after {\ttfamily @} symbol stands for number of solutions. This number may be {\ttfamily 0}, {\ttfamily 1}, {\ttfamily 2} or {\ttfamily -\/1}(infinite). 

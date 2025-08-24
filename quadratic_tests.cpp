@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include "quadratic_equation.hpp"
+#include "quadratic_print.hpp"
 #include "quadratic_solve.hpp"
 #include "quadratic_tests.hpp"
 #include "quadratic_utils.hpp"
@@ -11,11 +12,6 @@
 static int ReadOneTest(FILE *fp, SquareEquation *const quad);
 
 static int ParseOneTest(FILE *fp, SquareEquation *const quad);
-
-const char *RED = "\033[0;31m";
-const char *GREEN = "\033[0;32m";
-const char *NO_COLOR = "\033[0m";
-
 
 int ExecuteTests() {
   unsigned long int amount_of_lines = 0;
@@ -35,18 +31,7 @@ int ExecuteTests() {
   ReadTests(tests_filename, (int)amount_of_lines, quads);
   for (int i = 0; i < (int)amount_of_lines; ++i) {
     if (RunTest(&quads[i])) {
-      fprintf(stderr, "%s", RED);
-      fprintf(stderr, "Failed on test %d in %s\n", i + 1, tests_filename);
-      SquareEquation quad_readed = quads[i];
-      SquareEquation quad_expected = quads[i];
-      SolveEquation(&quad_expected);
-      printf("  Readed: a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg, nRoots = %d\n",
-             quad_readed.a, quad_readed.b, quad_readed.c,
-             quad_readed.x1, quad_readed.x2, quad_readed.number_of_solutions);
-      printf("Expected: a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg, nRoots = %d\n",
-             quad_expected.a, quad_expected.b, quad_expected.c,
-             quad_expected.x1, quad_expected.x2, quad_expected.number_of_solutions);
-      fprintf(stderr, "%s", NO_COLOR);
+      PrintTestError(quads, i, tests_filename);
       free(quads);
       quads = 0;
       return 1;
@@ -70,18 +55,7 @@ int ExecuteTests() {
   ParseTests(tests_filename, (int)amount_of_lines, quads);
   for (int i = 0; i < (int)amount_of_lines; ++i) {
     if (RunTest(&quads[i])) {
-      fprintf(stderr, "%s", RED);
-      fprintf(stderr, "Failed on test %d in %s\n", i + 1, tests_filename);
-      SquareEquation quad_readed = quads[i];
-      SquareEquation quad_expected = quads[i];
-      SolveEquation(&quad_expected);
-      printf("  Readed: a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg, nRoots = %d\n",
-             quad_readed.a, quad_readed.b, quad_readed.c,
-             quad_readed.x1, quad_readed.x2, quad_readed.number_of_solutions);
-      printf("Expected: a = %lg, b = %lg, c = %lg, x1 = %lg, x2 = %lg, nRoots = %d\n",
-             quad_expected.a, quad_expected.b, quad_expected.c,
-             quad_expected.x1, quad_expected.x2, quad_expected.number_of_solutions);
-      fprintf(stderr, "%s", NO_COLOR);
+      PrintTestError(quads, i, tests_filename);
       free(quads);
       quads = 0;
       return 1;
@@ -89,9 +63,7 @@ int ExecuteTests() {
   }
   free(quads);
   quads = 0;
-  printf("%s", GREEN);
-  printf("All tests passed successfully\n");
-  printf("%s", NO_COLOR);
+  PrintTestSuccess();
 
   return 0;
 }

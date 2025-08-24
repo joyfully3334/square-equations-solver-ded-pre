@@ -14,4 +14,8 @@ void PrintWelcome();
 
 void PrintHelp();
 
+void PrintTestError(SquareEquation *const quads, const int i, const char *const tests_filename);
+
+void PrintTestSuccess();
+
 #endif // QUADRATIC_PRINT_HPP

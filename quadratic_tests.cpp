@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdio.h>
 
+#include "quadratic_input.hpp"
 #include "quadratic_print.hpp"
 #include "quadratic_solve.hpp"
 #include "quadratic_tests.hpp"
@@ -81,14 +82,12 @@ static int ReadOneTest(FILE *fp, SquareEquation *const quad) {
   assert(fp);
   assert(quad);
 
-  char ch = ' ';
-  fscanf(fp, "%lg%lg%lg", &quad->a, &quad->b, &quad->c);
-  while ((ch = (char)fgetc(fp)) != '@')
+  int amount_of_solutions = 0.;
+  ReadInput(quad, fp);
+  while (fgetc(fp) != '@')
     ;
-  double tmp = 0;
-  double amount_of_solutions = 0.;
-  fscanf(fp, "%lg", &amount_of_solutions);
-  switch ((int)amount_of_solutions) {
+  fscanf(fp, "%d", &amount_of_solutions);
+  switch (amount_of_solutions) {
     case 0:
       quad->number_of_solutions = zero_solutions;
       break;
@@ -99,7 +98,7 @@ static int ReadOneTest(FILE *fp, SquareEquation *const quad) {
     case 2:
       fscanf(fp, "%lg%lg", &quad->x1, &quad->x2);
       if (quad->x1 > quad->x2) {
-        tmp = quad->x2;
+        double tmp = quad->x2;
         quad->x2 = quad->x1;
         quad->x1 = tmp;
       }

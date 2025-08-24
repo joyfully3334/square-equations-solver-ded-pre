@@ -5,11 +5,11 @@
 #include "quadratic_utils.hpp"
 
 static void GetQuadraticSolution(const double a, const double b, const double c,
-                          double *const x1, double *const x2,
-                          AMOUNT_OF_SOLUTIONS *const number_of_solutions);
+                                 double *const x1, double *const x2,
+                                 AMOUNT_OF_SOLUTIONS *const number_of_solutions);
 
 static void GetLinearSolution(const double b, const double c, double *const x1,
-                       AMOUNT_OF_SOLUTIONS *const number_of_solutions);
+                              AMOUNT_OF_SOLUTIONS *const number_of_solutions);
 
 void SolveEquation(SquareEquation *const quad) {
   assert(quad);

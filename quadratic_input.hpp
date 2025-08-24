@@ -1,6 +1,8 @@
 #ifndef QUADRATIC_INPUT_HPP
 #define QUADRATIC_INPUT_HPP
 
+#include <stdio.h>
+
 #include "quadratic_equation.hpp"
 
 enum INPUT_ERRORS {
@@ -11,9 +13,9 @@ enum INPUT_ERRORS {
 
 INPUT_ERRORS ReadCoef(double *const coef, const char name);
 
-INPUT_ERRORS ReadInput(SquareEquation *const quad);
+INPUT_ERRORS ReadInput(SquareEquation *const quad, FILE *input_fp);
 
-INPUT_ERRORS ParseInput(SquareEquation *const quad);
+INPUT_ERRORS ParseInput(SquareEquation *const quad, FILE *input_fp);
 
 int InputErrorHandler(const INPUT_ERRORS read_result);
 

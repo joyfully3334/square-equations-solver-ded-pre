@@ -22,10 +22,12 @@ int main(int argc, char **argv) {
     SquareEquation quad1;
 
     if (CheckFlag(argc, argv, "--parse")) {
-      if (InputErrorHandler(ParseInput(&quad1)))
+      printf("Enter square equation (format: ax^2 + bx + c): ");
+      if (InputErrorHandler(ParseInput(&quad1, stdin)))
         return 1;
     } else { // no --parse flag
-      if (InputErrorHandler(ReadInput(&quad1)))
+      printf("Enter three coefficients separated with spaces (a b c): ");
+      if (InputErrorHandler(ReadInput(&quad1, stdin)))
         return 1;
     }
 

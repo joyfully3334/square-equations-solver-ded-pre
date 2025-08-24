@@ -8,7 +8,6 @@
 INPUT_ERRORS ReadCoef(double *const coef, const char name) {
   assert(coef);
 
-  printf("Enter %c: ", name);
   if (!scanf("%lg", coef))
     return not_a_number;
   if (!isfinite(*coef))
@@ -33,36 +32,34 @@ INPUT_ERRORS ReadInput(SquareEquation *const quad) {
   return no_input_errors;
 }
 
-INPUT_ERRORS ParseInput(SquareEquation *const quad) {
+INPUT_ERRORS ParseInput(SquareEquation *const quad, FILE *input_fp) {
   assert(quad);
+  assert(input_fp);
 
-  const int MAX_LEN = 201;
-  char input[MAX_LEN] = {};
-  printf("Enter square equation (format: ax^2 + bx + c): ");
-  fgets(input, MAX_LEN, stdin);
+  int ch = 0;
   double tmp = 0;
   int deg = 0, changed = 0, after_dot = 0, prev_mark = 1;
   double nums[3] = {0., 0., 0.};
-  for (int i = 0; i < MAX_LEN; ++i) {
-    if (isdigit(input[i]) && deg != 2 && !after_dot) {
+  for (int i = 0; (ch = fgetc(input_fp)) != EOF; ++i) {
+    if (isdigit(ch) && deg != 2 && !after_dot) {
       changed = 1;
-      tmp = tmp * 10 + (input[i] - '0');
-    } else if (isdigit(input[i]) && deg != 2 && after_dot) {
+      tmp = tmp * 10 + (ch - '0');
+    } else if (isdigit(ch) && deg != 2 && after_dot) {
       changed = 1;
-      tmp += (input[i] - '0') * pow(10, -after_dot);
+      tmp += (ch - '0') * pow(10, -after_dot);
       ++after_dot;
-    } else if (input[i] == '.') {
+    } else if (ch == '.') {
       after_dot = 1;
-    } else if (input[i] == 'x') {
+    } else if (ch == 'x') {
       deg = 1;
-    } else if (input[i] == '^') {
+    } else if (ch == '^') {
       deg = 2;
-    } else if (input[i] == '+' || input[i] == '-' || input[i] == '\0') {
+    } else if (ch == '+' || ch == '-' || ch == '\n') {
       nums[deg] += (!changed && deg ? prev_mark : tmp * prev_mark);
-      prev_mark = (input[i] == '+' ? 1 : -1);
+      prev_mark = (ch == '+' ? 1 : -1);
       tmp = 0.;
       changed = deg = after_dot = 0;
-      if (input[i] == '\0')
+      if (ch == '\n')
         break;
     }
   }

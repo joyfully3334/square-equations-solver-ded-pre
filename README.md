@@ -5,7 +5,7 @@ Pretty simple programm to solve square equations.
 ## Options
 
 --help       Display this information.
---self-check Check tests from test.txt.
+--self-check Check tests from tests.txt and tests_parse.
 --silent     Dont print welocme message.
 --parse      Use parsing version of programm.
 
@@ -20,19 +20,26 @@ cd ~/square-equations-solver-ded-pre
 ./build_and_run.sh ./*.cpp
 ```
 
+You can provide flags to executable after `-a` flag.
+
+Example: `./build_and_run.sh ./*.cpp -a --some-flag`
+
 ## Building
 
 To build an executable you need to install `g++` compiler and then run:
 
 ```bash
 git clone github.com/joyfully3334/square-equations-solver-ded-pre
-cd ~/square-equations-solver-ded-pre
-./build.sh ./*.cpp
+cd ~/square-equations-solver-ded-pre/
+make
 ```
 
-You can provide flags to executable after `-a` flag.
+To clean executable and object files run:
 
-Example: `./build_and_run.sh ./*.cpp -a --some-flag`
+```bash
+cd ~/square-equations-solver-ded-pre/
+make clean
+```
 
 ## Testing
 
@@ -54,4 +61,3 @@ and tests_parse.txt for parsing version.
 Each line consists of test before '@' and answers after '@'.
 First number after '@' symbol stands for number of solutions.
 This number may be '0', '1', '2' or '-1'(infinite).
-It is an error if number after '@' is invalid.

@@ -5,10 +5,10 @@
 
 #include "quadratic_input.hpp"
 
-INPUT_ERRORS ReadCoef(double *const coef, const char name) {
+INPUT_ERRORS ReadCoef(double *const coef, FILE *input_fp) {
   assert(coef);
 
-  if (!scanf("%lg", coef))
+  if (!fscanf(input_fp, "%lg", coef))
     return not_a_number;
   if (!isfinite(*coef))
     return not_finite;
@@ -16,16 +16,16 @@ INPUT_ERRORS ReadCoef(double *const coef, const char name) {
   return no_input_errors;
 }
 
-INPUT_ERRORS ReadInput(SquareEquation *const quad) {
+INPUT_ERRORS ReadInput(SquareEquation *const quad, FILE *input_fp) {
   assert(quad);
 
-  INPUT_ERRORS ret_val = ReadCoef(&quad->a, 'a');
+  INPUT_ERRORS ret_val = ReadCoef(&quad->a, input_fp);
   if (ret_val)
     return ret_val;
-  ret_val = ReadCoef(&quad->b, 'b');
+  ret_val = ReadCoef(&quad->b, input_fp);
   if (ret_val)
     return ret_val;
-  ret_val = ReadCoef(&quad->c, 'c');
+  ret_val = ReadCoef(&quad->c, input_fp);
   if (ret_val)
     return ret_val;
 

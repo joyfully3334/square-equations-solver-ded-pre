@@ -4,10 +4,12 @@ Pretty simple programm to solve square equations.
 
 ## Options
 
+```
 --help       Display this information.
 --self-check Check tests from tests.txt and tests_parse.
 --silent     Dont print welocme message.
 --parse      Use parsing version of programm.
+```
 
 ## Fast build and run
 

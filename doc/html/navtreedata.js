@@ -26,12 +26,12 @@ var NAVTREE =
 [
   [ "Quadratic", "index.html", [
     [ "Square Equation Solver", "md_README.html", [
-      [ "Options", "md_README.html#autotoc_md1", null ],
-      [ "Fast build and run", "md_README.html#autotoc_md2", null ],
-      [ "Building", "md_README.html#autotoc_md3", null ],
-      [ "Testing", "md_README.html#autotoc_md4", [
-        [ "Running tests", "md_README.html#autotoc_md5", null ],
-        [ "Editing tests", "md_README.html#autotoc_md6", null ]
+      [ "Options", "md_README.html#autotoc_md2", null ],
+      [ "Fast build and run", "md_README.html#autotoc_md3", null ],
+      [ "Building", "md_README.html#autotoc_md4", null ],
+      [ "Testing", "md_README.html#autotoc_md5", [
+        [ "Running tests", "md_README.html#autotoc_md6", null ],
+        [ "Editing tests", "md_README.html#autotoc_md7", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [

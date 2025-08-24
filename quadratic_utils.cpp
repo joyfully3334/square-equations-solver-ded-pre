@@ -57,6 +57,10 @@ int GetAmountOfLines(const char *const filename) {
   assert(filename);
 
   FILE *fp = fopen(filename, "r");
+  if (!fp) {
+    fprintf(stderr, "Programm failed to read file %s\n", filename);
+    return 1;
+  }
   int ch = 0, lines = 0;
   while ((ch = fgetc(fp)) != EOF)
     if (ch == '\n')

@@ -54,7 +54,7 @@ int ReadTests(const char *const filename, const int MAX_SIZE, SquareEquation qua
 
   FILE *fp = fopen(filename, "r");
   if (!fp) {
-    fprintf(stderr, "Programm failed to read file tests.txt");
+    fprintf(stderr, "Programm failed to read file %s\n", filename);
     return 1;
   }
   int tmp = 0;
@@ -113,7 +113,7 @@ int ParseTests(const char *const filename, const int MAX_SIZE, SquareEquation qu
 
   FILE *fp = fopen(filename, "r");
   if (!fp) {
-    fprintf(stderr, "Programm failed to read file tests.txt");
+    fprintf(stderr, "Programm failed to read file %s\n", filename);
     return 1;
   }
   int tmp = 0;

@@ -9,9 +9,9 @@
 #include "quadratic_tests.hpp"
 
 int main(int argc, char **argv) {
-  if (!CheckFlag(argc, argv, "--silent")) {
-    printf("%s\n", "--Square equation solver--");
-  }
+  if (!CheckFlag(argc, argv, "--silent"))
+    PrintWelcome();
+
   if (CheckFlag(argc, argv, "--help")) {
     printf("%s\n%s\n%s\n%s\n%s\n%s\n",
            "Usage: quadratic [options]",

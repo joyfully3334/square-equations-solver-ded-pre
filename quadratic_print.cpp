@@ -26,3 +26,7 @@ PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad) {
 
   return no_print_results_errors;
 }
+
+void PrintWelcome() {
+  printf("%s\n", "--Square equation solver--");
+}

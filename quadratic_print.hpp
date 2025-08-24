@@ -10,4 +10,6 @@ enum PRINT_RESULTS_ERRORS {
 
 PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad);
 
+void PrintWelcome();
+
 #endif // QUADRATIC_PRINT_HPP

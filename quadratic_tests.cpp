@@ -3,7 +3,6 @@
 #include <math.h>
 #include <stdio.h>
 
-#include "quadratic_equation.hpp"
 #include "quadratic_print.hpp"
 #include "quadratic_solve.hpp"
 #include "quadratic_tests.hpp"

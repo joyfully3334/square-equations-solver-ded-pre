@@ -17,7 +17,7 @@ const char *GREEN = "\033[0;32m";
 const char *NO_COLOR = "\033[0m";
 
 
-int ExecuteProgrammWithTesting() {
+int ExecuteTests() {
   unsigned long int amount_of_lines = 0;
   int ch = ' ';
   const char *tests_filename = "tests.txt";

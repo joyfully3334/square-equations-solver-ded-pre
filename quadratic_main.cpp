@@ -23,8 +23,8 @@ int main(int argc, char **argv) {
       fprintf(stderr, "Unable to open test.txt file");
       return 1;
     }
-    return ExecuteProgrammWithTesting();
-  } else {
+    return ExecuteTests();
+  } else { // no --self-check flag
     SquareEquation quad1;
     if (CheckFlag(argc, argv, "--parse")) {
       if (InputErrorHandler(ParseInput(&quad1)))

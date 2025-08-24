@@ -18,11 +18,6 @@ int main(int argc, char **argv) {
   }
 
   if (CheckFlag(argc, argv, "--self-check")) {
-    FILE *tests_fp = fopen("tests.txt", "r");
-    if (!tests_fp) {
-      fprintf(stderr, "Unable to open test.txt file");
-      return 1;
-    }
     return ExecuteTests();
   } else { // no --self-check flag
     SquareEquation quad1;

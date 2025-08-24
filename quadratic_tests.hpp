@@ -9,6 +9,6 @@ int ParseTests(const char *const filename, const int MAX_SIZE, SquareEquation qu
 
 int RunTest(SquareEquation *const quad);
 
-int ExecuteTests();
+int ExecuteTests(const char *tests_filename, const int is_parsing);
 
 #endif // QUADRATIC_TESTS_HPP

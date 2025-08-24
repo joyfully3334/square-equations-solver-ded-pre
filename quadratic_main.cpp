@@ -17,7 +17,8 @@ int main(int argc, char **argv) {
   }
 
   if (CheckFlag(argc, argv, "--self-check")) {
-    return ExecuteTests();
+    return ExecuteTests("tests.txt", 0);
+    return ExecuteTests("tests_parse.txt", 1);
   } else { // no --self-check flag
     SquareEquation quad1;
 

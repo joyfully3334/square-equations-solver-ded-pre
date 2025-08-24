@@ -12,23 +12,15 @@ static int ReadOneTest(FILE *fp, SquareEquation *const quad);
 
 static int ParseOneTest(FILE *fp, SquareEquation *const quad);
 
-int ExecuteTests() {
-  const char *tests_filename = "tests.txt";
+int ExecuteTests(const char *tests_filename, const int is_parsing) {
   int amount_of_lines = GetAmountOfLines(tests_filename);
   SquareEquation *quads = (SquareEquation *)calloc((size_t)amount_of_lines, sizeof(SquareEquation));
-  ReadTests(tests_filename, amount_of_lines, quads);
-  for (int i = 0; i < (int)amount_of_lines; ++i) {
-    if (RunTest(&quads[i])) {
-      PrintTestError(quads, i, tests_filename);
-      free(quads);
-      quads = 0;
-      return 1;
-    }
-  }
-  tests_filename = "tests_parse.txt";
-  amount_of_lines = GetAmountOfLines(tests_filename);
-  quads = (SquareEquation *)realloc(quads, (unsigned long)amount_of_lines * sizeof(SquareEquation));
-  ParseTests(tests_filename, (int)amount_of_lines, quads);
+
+  if (is_parsing)
+    ParseTests(tests_filename, amount_of_lines, quads);
+  else
+    ReadTests(tests_filename, amount_of_lines, quads);
+
   for (int i = 0; i < (int)amount_of_lines; ++i) {
     if (RunTest(&quads[i])) {
       PrintTestError(quads, i, tests_filename);
@@ -40,7 +32,6 @@ int ExecuteTests() {
   free(quads);
   quads = 0;
   PrintTestSuccess();
-
   return 0;
 }
 

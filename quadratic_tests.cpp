@@ -1,5 +1,4 @@
 #include <assert.h>
-#include <ctype.h>
 #include <math.h>
 #include <stdio.h>
 
@@ -140,37 +139,8 @@ static int ParseOneTest(FILE *fp, SquareEquation *const quad) {
   assert(fp);
   assert(quad);
 
-  double tmp = 0;
-  int ch = 0;
-  int deg = 0, changed = 0, after_dot = 0, prev_mark = 1;
-  double nums[3] = {0., 0., 0.};
-  for (int i = 0; (ch = fgetc(fp)) != EOF; ++i) {
-    if (isdigit(ch) && deg != 2 && !after_dot) {
-      changed = 1;
-      tmp = tmp * 10 + (ch - '0');
-    } else if (isdigit(ch) && deg != 2 && after_dot) {
-      changed = 1;
-      tmp += (ch - '0') * pow(10, -after_dot);
-      ++after_dot;
-    } else if (ch == '.') {
-      after_dot = 1;
-    } else if (ch == 'x') {
-      deg = 1;
-    } else if (ch == '^') {
-      deg = 2;
-    } else if (ch == '+' || ch == '-' || ch == '\0' || ch == '\n' || ch == '@') {
-      nums[deg] += (!changed && deg ? prev_mark : tmp * prev_mark);
-      prev_mark = (ch == '+' ? 1 : -1);
-      tmp = 0.;
-      changed = deg = after_dot = 0;
-      if (ch == '\0' || ch == '\n' || ch == '@')
-        break;
-    }
-  }
-  quad->c = nums[0];
-  quad->b = nums[1];
-  quad->a = nums[2];
-  tmp = 0.;
+  ParseInput(quad, fp);
+  double tmp = 0.;
   double amount_of_solutions = 0.;
   fscanf(fp, "%lg", &amount_of_solutions);
   switch ((int)amount_of_solutions) {

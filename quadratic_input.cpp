@@ -38,12 +38,12 @@ INPUT_ERRORS ParseInput(SquareEquation *const quad, FILE *input_fp) {
       deg = 1;
     } else if (ch == '^') {
       deg = 2;
-    } else if (ch == '+' || ch == '-' || ch == '\n') {
+    } else if (ch == '+' || ch == '-' || ch == '\n' || ch == '@') {
       nums[deg] += (!changed && deg ? prev_mark : tmp * prev_mark);
       prev_mark = (ch == '+' ? 1 : -1);
       tmp = 0.;
       changed = deg = after_dot = 0;
-      if (ch == '\n')
+      if (ch == '\n' || ch == '@')
         break;
     }
   }

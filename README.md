@@ -14,7 +14,7 @@ Pretty simple programm to solve square equations.
 ## Fast build and run
 
 Make sure that you have `g++` before running.
-Then run in terminal theese lines of code:
+Then run in terminal these lines of code:
 
 ```bash
 git clone github.com/joyfully3334/square-equations-solver-ded-pre

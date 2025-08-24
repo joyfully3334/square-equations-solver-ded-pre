@@ -7,7 +7,7 @@ int ReadTests(const char *const filename, const int MAX_SIZE, SquareEquation qua
 
 int ParseTests(const char *const filename, const int MAX_SIZE, SquareEquation quads[]);
 
-int RunStandardTest(SquareEquation *const quad);
+int RunTest(SquareEquation *const quad);
 
 int ExecuteTests();
 

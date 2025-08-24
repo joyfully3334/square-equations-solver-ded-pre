@@ -34,7 +34,7 @@ int ExecuteTests() {
   SquareEquation *quads = (SquareEquation *)calloc(amount_of_lines, sizeof(SquareEquation));
   ReadTests(tests_filename, (int)amount_of_lines, quads);
   for (int i = 0; i < (int)amount_of_lines; ++i) {
-    if (RunStandardTest(&quads[i])) {
+    if (RunTest(&quads[i])) {
       fprintf(stderr, "%s", RED);
       fprintf(stderr, "Failed on test %d in %s\n", i + 1, tests_filename);
       SquareEquation quad_readed = quads[i];
@@ -69,7 +69,7 @@ int ExecuteTests() {
   quads = (SquareEquation *)realloc(quads, amount_of_lines * sizeof(SquareEquation));
   ParseTests(tests_filename, (int)amount_of_lines, quads);
   for (int i = 0; i < (int)amount_of_lines; ++i) {
-    if (RunStandardTest(&quads[i])) {
+    if (RunTest(&quads[i])) {
       fprintf(stderr, "%s", RED);
       fprintf(stderr, "Failed on test %d in %s\n", i + 1, tests_filename);
       SquareEquation quad_readed = quads[i];
@@ -96,7 +96,7 @@ int ExecuteTests() {
   return 0;
 }
 
-int RunStandardTest(SquareEquation *const quad) {
+int RunTest(SquareEquation *const quad) {
   assert(quad);
 
   SquareEquation new_quad = *quad;

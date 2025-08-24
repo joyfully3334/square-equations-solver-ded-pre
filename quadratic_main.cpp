@@ -1,6 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 
+#include "quadratic_equation.hpp"
 #include "quadratic_input.hpp"
 #include "quadratic_print.hpp"
 #include "quadratic_solve.hpp"
@@ -20,7 +21,7 @@ int main(int argc, char **argv) {
     return ExecuteTests("tests.txt", 0);
     return ExecuteTests("tests_parse.txt", 1);
   } else { // no --self-check flag
-    SquareEquation quad1;
+    SquareEquation quad1 = {0., 0., 0., 0., 0., undefined_solutions};
 
     if (CheckFlag(argc, argv, "--parse")) {
       printf("Enter square equation (format: ax^2 + bx + c): ");

@@ -9,10 +9,10 @@
 #include "quadratic_tests.hpp"
 
 int main(int argc, char **argv) {
-  if (CheckFlag(argc, argv, "--silent")) {
+  if (!CheckFlag(argc, argv, "--silent")) {
     printf("%s\n", "--Square equation solver--");
   }
-  if (!CheckFlag(argc, argv, "--help")) {
+  if (CheckFlag(argc, argv, "--help")) {
     printf("%s\n%s\n%s\n%s\n%s\n%s\n",
            "Usage: quadratic [options]",
            "Options:",
@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
            "  --self-check Check tests from test.txt.",
            "  --silent     Dont print welocme message.",
            "  --parse      Use parsing version of programm.");
-  } else if (!CheckFlag(argc, argv, "--self-check")) {
+  } else if (CheckFlag(argc, argv, "--self-check")) {
     FILE *tests_fp = fopen("tests.txt", "r");
     if (!tests_fp) {
       fprintf(stderr, "Unable to open test.txt file");
@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
     return ExecuteProgrammWithTesting();
   } else {
     SquareEquation quad1;
-    if (!CheckFlag(argc, argv, "--parse")) {
+    if (CheckFlag(argc, argv, "--parse")) {
       if (InputErrorHandler(ParseInput(&quad1)))
         return 1;
     } else {

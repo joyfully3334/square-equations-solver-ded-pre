@@ -24,10 +24,10 @@ void RemoveNegativeZero(double *const num) {
 int CheckFlag(int argc, char **argv, const char *flag) {
   for (int i = 0; i < argc; ++i) {
     if (!strcmp(argv[i], flag))
-      return 0;
+      return 1;
   }
 
-  return 1;
+  return 0;
 }
 
 int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2) {

@@ -30,3 +30,12 @@ PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad) {
 void PrintWelcome() {
   printf("%s\n", "--Square equation solver--");
 }
+void PrintHelp() {
+    printf("%s\n%s\n%s\n%s\n%s\n%s\n",
+           "Usage: quadratic [options]",
+           "Options:",
+           "  --help       Display this information.",
+           "  --self-check Check tests from test.txt.",
+           "  --silent     Dont print welocme message.",
+           "  --parse      Use parsing version of programm.");
+}

@@ -12,4 +12,6 @@ PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad);
 
 void PrintWelcome();
 
+void PrintHelp();
+
 #endif // QUADRATIC_PRINT_HPP

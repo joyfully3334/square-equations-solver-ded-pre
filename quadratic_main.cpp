@@ -13,14 +13,11 @@ int main(int argc, char **argv) {
     PrintWelcome();
 
   if (CheckFlag(argc, argv, "--help")) {
-    printf("%s\n%s\n%s\n%s\n%s\n%s\n",
-           "Usage: quadratic [options]",
-           "Options:",
-           "  --help       Display this information.",
-           "  --self-check Check tests from test.txt.",
-           "  --silent     Dont print welocme message.",
-           "  --parse      Use parsing version of programm.");
-  } else if (CheckFlag(argc, argv, "--self-check")) {
+    PrintHelp();
+    return 1;
+  }
+
+  if (CheckFlag(argc, argv, "--self-check")) {
     FILE *tests_fp = fopen("tests.txt", "r");
     if (!tests_fp) {
       fprintf(stderr, "Unable to open test.txt file");

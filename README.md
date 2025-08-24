@@ -4,7 +4,7 @@ Pretty simple programm to solve square equations.
 
 ## Options
 
-```
+```bash
 --help       Display this information.
 --self-check Check tests from tests.txt and tests_parse.
 --silent     Dont print welocme message.
@@ -60,6 +60,6 @@ Example: `./build_and_run.sh ./*.cpp -a --self-check`
 All tests are located at tests.txt for standard version
 and tests_parse.txt for parsing version.
 
-Each line consists of test before '@' and answers after '@'.
-First number after '@' symbol stands for number of solutions.
-This number may be '0', '1', '2' or '-1'(infinite).
+Each line consists of test before `@` and answers after `@`.
+First number after `@` symbol stands for number of solutions.
+This number may be `0`, `1`, `2` or `-1`(infinite).

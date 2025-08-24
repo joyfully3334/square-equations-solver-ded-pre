@@ -7,7 +7,7 @@ int DoubleComp(const double num1, const double num2);
 
 void RemoveNegativeZero(double *const num);
 
-int CheckFlag(int argc, char **argv, const char *flag);
+int CheckFlag(int argc, char **argv, const char *const flag);
 
 int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2);
 

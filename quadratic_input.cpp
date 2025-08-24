@@ -5,8 +5,9 @@
 
 #include "quadratic_input.hpp"
 
-INPUT_ERRORS ReadInput(SquareEquation *const quad, FILE *input_fp) {
+INPUT_ERRORS ReadInput(SquareEquation *const quad, FILE *const input_fp) {
   assert(quad);
+  assert(input_fp);
 
   if (fscanf(input_fp, "%lf%lf%lf", &quad->a, &quad->b, &quad->c) != 3)
     return not_a_number;
@@ -16,13 +17,13 @@ INPUT_ERRORS ReadInput(SquareEquation *const quad, FILE *input_fp) {
   return no_input_errors;
 }
 
-INPUT_ERRORS ParseInput(SquareEquation *const quad, FILE *input_fp) {
+INPUT_ERRORS ParseInput(SquareEquation *const quad, FILE *const input_fp) {
   assert(quad);
   assert(input_fp);
 
   int ch = 0;
-  double tmp = 0;
   int deg = 0, changed = 0, after_dot = 0, prev_mark = 1;
+  double tmp = 0;
   double nums[3] = {0., 0., 0.};
   for (int i = 0; (ch = fgetc(input_fp)) != EOF; ++i) {
     if (isdigit(ch) && deg != 2 && !after_dot) {

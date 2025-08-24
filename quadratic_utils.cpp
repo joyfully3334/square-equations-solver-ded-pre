@@ -22,7 +22,9 @@ void RemoveNegativeZero(double *const num) {
   *num = (DoubleComp(*num, 0.) ? *num : fabs(*num));
 }
 
-int CheckFlag(int argc, char **argv, const char *flag) {
+int CheckFlag(int argc, char **argv, const char *const flag) {
+  assert(flag);
+
   for (int i = 0; i < argc; ++i) {
     if (!strcmp(argv[i], flag))
       return 1;
@@ -52,6 +54,8 @@ int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2) {
 }
 
 int GetAmountOfLines(const char *const filename) {
+  assert(filename);
+
   FILE *fp = fopen(filename, "r");
   int ch = 0, lines = 0;
   while ((ch = fgetc(fp)) != EOF)

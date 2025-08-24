@@ -8,11 +8,13 @@
 #include "quadratic_tests.hpp"
 #include "quadratic_utils.hpp"
 
-static int ReadOneTest(FILE *fp, SquareEquation *const quad);
+static int ReadOneTest(FILE *const fp, SquareEquation *const quad);
 
-static int ParseOneTest(FILE *fp, SquareEquation *const quad);
+static int ParseOneTest(FILE *const fp, SquareEquation *const quad);
 
-int ExecuteTests(const char *tests_filename, const int is_parsing) {
+int ExecuteTests(const char *const tests_filename, const int is_parsing) {
+  assert(tests_filename);
+
   int amount_of_lines = GetAmountOfLines(tests_filename);
   SquareEquation *quads = (SquareEquation *)calloc((size_t)amount_of_lines, sizeof(SquareEquation));
 
@@ -48,6 +50,7 @@ int RunTest(SquareEquation *const quad) {
 
 int ReadTests(const char *const filename, const int MAX_SIZE, SquareEquation quads[]) {
   assert(filename);
+  assert(quads);
 
   FILE *fp = fopen(filename, "r");
   if (!fp) {
@@ -68,7 +71,7 @@ int ReadTests(const char *const filename, const int MAX_SIZE, SquareEquation qua
   return 0;
 }
 
-static int ReadOneTest(FILE *fp, SquareEquation *const quad) {
+static int ReadOneTest(FILE *const fp, SquareEquation *const quad) {
   assert(fp);
   assert(quad);
 
@@ -106,6 +109,7 @@ static int ReadOneTest(FILE *fp, SquareEquation *const quad) {
 
 int ParseTests(const char *const filename, const int MAX_SIZE, SquareEquation quads[]) {
   assert(filename);
+  assert(quads);
 
   FILE *fp = fopen(filename, "r");
   if (!fp) {

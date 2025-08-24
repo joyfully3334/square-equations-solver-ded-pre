@@ -51,7 +51,7 @@ int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2) {
   }
 }
 
-int GetAmountOfLines(char *const filename) {
+int GetAmountOfLines(const char *const filename) {
   FILE *fp = fopen(filename, "r");
   int ch = 0, lines = 0;
   while ((ch = fgetc(fp)) != EOF)

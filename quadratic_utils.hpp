@@ -11,4 +11,6 @@ int CheckFlag(int argc, char **argv, const char *flag);
 
 int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2);
 
+int GetAmountOfLines(const char *const filename);
+
 #endif // QUADRATIC_UTILS_HPP

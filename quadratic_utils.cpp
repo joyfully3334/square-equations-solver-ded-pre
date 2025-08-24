@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <math.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "quadratic_utils.hpp"
@@ -48,4 +49,14 @@ int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2) {
   default:
     return 1;
   }
+}
+
+int GetAmountOfLines(char *const filename) {
+  FILE *fp = fopen(filename, "r");
+  int ch = 0, lines = 0;
+  while ((ch = fgetc(fp)) != EOF)
+    if (ch == '\n')
+      ++lines;
+  return lines;
+  fclose(fp);
 }

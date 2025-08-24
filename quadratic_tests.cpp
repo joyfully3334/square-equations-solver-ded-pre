@@ -13,19 +13,9 @@ static int ReadOneTest(FILE *fp, SquareEquation *const quad);
 static int ParseOneTest(FILE *fp, SquareEquation *const quad);
 
 int ExecuteTests() {
-  unsigned long int amount_of_lines = 0;
   int ch = ' ';
   const char *tests_filename = "tests.txt";
-  FILE *tests_fp = fopen(tests_filename, "r");
-  if (!tests_fp) {
-    fprintf(stderr, "Unable to open file %s\n", tests_filename);
-    return 1;
-}
-  while ((ch = fgetc(tests_fp)) != EOF) {
-    if (ch == '\n')
-      ++amount_of_lines;
-  }
-  fclose(tests_fp);
+  unsigned long int amount_of_lines = GetAmountOfLines(tests_filename);
   SquareEquation *quads = (SquareEquation *)calloc(amount_of_lines, sizeof(SquareEquation));
   ReadTests(tests_filename, (int)amount_of_lines, quads);
   for (int i = 0; i < (int)amount_of_lines; ++i) {
@@ -36,20 +26,8 @@ int ExecuteTests() {
       return 1;
     }
   }
-  amount_of_lines = 0;
   tests_filename = "tests_parse.txt";
-  tests_fp = fopen(tests_filename, "r");
-  if (!tests_fp) {
-    fprintf(stderr, "Unable to open file %s\n", tests_filename);
-    free(quads);
-    quads = 0;
-    return 1;
-  }
-  while ((ch = fgetc(tests_fp)) != EOF) {
-    if (ch == '\n')
-      ++amount_of_lines;
-  }
-  fclose(tests_fp);
+  amount_of_lines = GetAmountOfLines(tests_filename);
   quads = (SquareEquation *)realloc(quads, amount_of_lines * sizeof(SquareEquation));
   ParseTests(tests_filename, (int)amount_of_lines, quads);
   for (int i = 0; i < (int)amount_of_lines; ++i) {

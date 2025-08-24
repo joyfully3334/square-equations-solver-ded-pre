@@ -11,8 +11,6 @@ enum INPUT_ERRORS {
   not_finite      = 2
 };
 
-INPUT_ERRORS ReadCoef(double *const coef, FILE *input_fp);
-
 INPUT_ERRORS ReadInput(SquareEquation *const quad, FILE *input_fp);
 
 INPUT_ERRORS ParseInput(SquareEquation *const quad, FILE *input_fp);

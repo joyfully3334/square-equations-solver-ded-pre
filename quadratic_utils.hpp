@@ -1,3 +1,9 @@
+//--------------------------------------------------------------
+//! @file quadratic_utils.hpp
+//!
+//! Contains extra functions
+//--------------------------------------------------------------
+
 #ifndef QUADRATIC_UTILS_HPP
 #define QUADRATIC_UTILS_HPP
 

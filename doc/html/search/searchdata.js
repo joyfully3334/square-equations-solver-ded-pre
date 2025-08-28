@@ -1,21 +1,27 @@
 var indexSectionsWithContent =
 {
-  0: "abeforst",
+  0: "abcdefgopqrst",
   1: "s",
-  2: "abeforst"
+  2: "q",
+  3: "cdegpqrs",
+  4: "abeforst"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "pages"
+  2: "files",
+  3: "functions",
+  4: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
   1: "Data Structures",
-  2: "Pages"
+  2: "Files",
+  3: "Functions",
+  4: "Pages"
 };
 

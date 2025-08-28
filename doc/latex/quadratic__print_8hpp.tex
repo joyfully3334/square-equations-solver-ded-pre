@@ -1,0 +1,73 @@
+\doxysection{quadratic\+\_\+print.\+hpp File Reference}
+\hypertarget{quadratic__print_8hpp}{}\label{quadratic__print_8hpp}\index{quadratic\_print.hpp@{quadratic\_print.hpp}}
+{\ttfamily \#include "{}quadratic\+\_\+equation.\+hpp"{}}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{quadratic__print_8hpp_a92d71886080441e4582dfef2e1e3389e}\label{quadratic__print_8hpp_a92d71886080441e4582dfef2e1e3389e} 
+enum {\bfseries PRINT\+\_\+\+RESULTS\+\_\+\+ERRORS} \{ {\bfseries no\+\_\+print\+\_\+results\+\_\+errors} = 0
+, {\bfseries undefined\+\_\+amount\+\_\+of\+\_\+solutions} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{quadratic__print_8hpp_addaaf5511d7c5cf7cfa17e6c45bd21ba}\label{quadratic__print_8hpp_addaaf5511d7c5cf7cfa17e6c45bd21ba} 
+PRINT\+\_\+\+RESULTS\+\_\+\+ERRORS {\bfseries Print\+Result} (const \mbox{\hyperlink{structSquareEquation}{Square\+Equation}} quad)
+\item 
+void \mbox{\hyperlink{quadratic__print_8hpp_a5dbae1932946c4088c927f1d534d2cd1}{Print\+Welcome}} ()
+\item 
+void \mbox{\hyperlink{quadratic__print_8hpp_ae964ff8411b4fdcaf65cb5529aea4bef}{Print\+Help}} ()
+\item 
+void \mbox{\hyperlink{quadratic__print_8hpp_a6b580c813258b0503066a14f157f7972}{Print\+Test\+Error}} (\mbox{\hyperlink{structSquareEquation}{Square\+Equation}} \texorpdfstring{$\ast$}{*}const quads, const int i, const char \texorpdfstring{$\ast$}{*}const tests\+\_\+filename)
+\item 
+\Hypertarget{quadratic__print_8hpp_aab342ddd1f7594742313bd2c01240e51}\label{quadratic__print_8hpp_aab342ddd1f7594742313bd2c01240e51} 
+void {\bfseries Print\+Test\+Success} ()
+\begin{DoxyCompactList}\small\item\em Prints success message when all tests passed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains print functions 
+
+\label{doc-func-members}
+\Hypertarget{quadratic__print_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{quadratic__print_8hpp_ae964ff8411b4fdcaf65cb5529aea4bef}\index{quadratic\_print.hpp@{quadratic\_print.hpp}!PrintHelp@{PrintHelp}}
+\index{PrintHelp@{PrintHelp}!quadratic\_print.hpp@{quadratic\_print.hpp}}
+\doxysubsubsection{\texorpdfstring{PrintHelp()}{PrintHelp()}}
+{\footnotesize\ttfamily \label{quadratic__print_8hpp_ae964ff8411b4fdcaf65cb5529aea4bef} 
+void Print\+Help (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Prints help message
+
+\begin{DoxyNote}{Note}
+Must be used only when --help flag {\bfseries{is}} set 
+\end{DoxyNote}
+\Hypertarget{quadratic__print_8hpp_a6b580c813258b0503066a14f157f7972}\index{quadratic\_print.hpp@{quadratic\_print.hpp}!PrintTestError@{PrintTestError}}
+\index{PrintTestError@{PrintTestError}!quadratic\_print.hpp@{quadratic\_print.hpp}}
+\doxysubsubsection{\texorpdfstring{PrintTestError()}{PrintTestError()}}
+{\footnotesize\ttfamily \label{quadratic__print_8hpp_a6b580c813258b0503066a14f157f7972} 
+void Print\+Test\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSquareEquation}{Square\+Equation}} \texorpdfstring{$\ast$}{*}const}]{quads}{, }\item[{const int}]{i}{, }\item[{const char \texorpdfstring{$\ast$}{*}const}]{tests\+\_\+filename}{}\end{DoxyParamCaption})}
+
+Prints message with debug info about failed test
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em quads} & Array of structures of type \doxylink{structSquareEquation}{Square\+Equation} \\
+\hline
+\mbox{\texttt{in}}  & {\em i} & Number of test \\
+\hline
+\mbox{\texttt{in}}  & {\em tests\+\_\+filename} & Name of file that used to read tests \\
+\hline
+\end{DoxyParams}
+\Hypertarget{quadratic__print_8hpp_a5dbae1932946c4088c927f1d534d2cd1}\index{quadratic\_print.hpp@{quadratic\_print.hpp}!PrintWelcome@{PrintWelcome}}
+\index{PrintWelcome@{PrintWelcome}!quadratic\_print.hpp@{quadratic\_print.hpp}}
+\doxysubsubsection{\texorpdfstring{PrintWelcome()}{PrintWelcome()}}
+{\footnotesize\ttfamily \label{quadratic__print_8hpp_a5dbae1932946c4088c927f1d534d2cd1} 
+void Print\+Welcome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Prints welcome message
+
+\begin{DoxyNote}{Note}
+Must be used only when --silent flag {\bfseries{is not}} set 
+\end{DoxyNote}

@@ -1,3 +1,9 @@
+//--------------------------------------------------------------
+//! @file quadratic_input.hpp
+//!
+//! Contains input functions
+//--------------------------------------------------------------
+
 #ifndef QUADRATIC_INPUT_HPP
 #define QUADRATIC_INPUT_HPP
 

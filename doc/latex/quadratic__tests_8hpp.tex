@@ -1,0 +1,100 @@
+\doxysection{quadratic\+\_\+tests.\+hpp File Reference}
+\hypertarget{quadratic__tests_8hpp}{}\label{quadratic__tests_8hpp}\index{quadratic\_tests.hpp@{quadratic\_tests.hpp}}
+{\ttfamily \#include "{}quadratic\+\_\+equation.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{quadratic__tests_8hpp_a35ed37859ad86335202872d187e7e57c}{Execute\+Tests}} (const char \texorpdfstring{$\ast$}{*}const tests\+\_\+filename, const int is\+\_\+parsing)
+\item 
+int \mbox{\hyperlink{quadratic__tests_8hpp_a5f175e8ba2ae6bca1987b456c4cdaec4}{Read\+Tests}} (const char \texorpdfstring{$\ast$}{*}const filename, const int tests\+\_\+count, \mbox{\hyperlink{structSquareEquation}{Square\+Equation}} quads\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{quadratic__tests_8hpp_a02902f00ffb0c2d1c3d7f111f79d9c20}{Parse\+Tests}} (const char \texorpdfstring{$\ast$}{*}const filename, const int tests\+\_\+count, \mbox{\hyperlink{structSquareEquation}{Square\+Equation}} quads\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{quadratic__tests_8hpp_a7948e5311cd441c20b5bb0abac41ec6d}{Run\+Test}} (\mbox{\hyperlink{structSquareEquation}{Square\+Equation}} \texorpdfstring{$\ast$}{*}const quad)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains testing functions 
+
+\label{doc-func-members}
+\Hypertarget{quadratic__tests_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{quadratic__tests_8hpp_a35ed37859ad86335202872d187e7e57c}\index{quadratic\_tests.hpp@{quadratic\_tests.hpp}!ExecuteTests@{ExecuteTests}}
+\index{ExecuteTests@{ExecuteTests}!quadratic\_tests.hpp@{quadratic\_tests.hpp}}
+\doxysubsubsection{\texorpdfstring{ExecuteTests()}{ExecuteTests()}}
+{\footnotesize\ttfamily \label{quadratic__tests_8hpp_a35ed37859ad86335202872d187e7e57c} 
+int Execute\+Tests (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}const}]{tests\+\_\+filename}{, }\item[{const int}]{is\+\_\+parsing}{}\end{DoxyParamCaption})}
+
+Executes tests
+
+Reads tests, then runs tests and compairing it
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em tests\+\_\+filename} & Name of file to read from \\
+\hline
+\mbox{\texttt{in}}  & {\em is\+\_\+parsing} & If non-\/zero, use parsing version for this file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value on error, else 0 
+\end{DoxyReturn}
+\Hypertarget{quadratic__tests_8hpp_a02902f00ffb0c2d1c3d7f111f79d9c20}\index{quadratic\_tests.hpp@{quadratic\_tests.hpp}!ParseTests@{ParseTests}}
+\index{ParseTests@{ParseTests}!quadratic\_tests.hpp@{quadratic\_tests.hpp}}
+\doxysubsubsection{\texorpdfstring{ParseTests()}{ParseTests()}}
+{\footnotesize\ttfamily \label{quadratic__tests_8hpp_a02902f00ffb0c2d1c3d7f111f79d9c20} 
+int Parse\+Tests (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}const}]{filename}{, }\item[{const int}]{tests\+\_\+count}{, }\item[{\mbox{\hyperlink{structSquareEquation}{Square\+Equation}}}]{quads}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+Parses tests from file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em filename} & Name of file to read from \\
+\hline
+\mbox{\texttt{in}}  & {\em tests\+\_\+count} & Amount of tests if file \\
+\hline
+\mbox{\texttt{in}}  & {\em quads} & Array of structs of type \doxylink{structSquareEquation}{Square\+Equation}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value on error, else 0 
+\end{DoxyReturn}
+\Hypertarget{quadratic__tests_8hpp_a5f175e8ba2ae6bca1987b456c4cdaec4}\index{quadratic\_tests.hpp@{quadratic\_tests.hpp}!ReadTests@{ReadTests}}
+\index{ReadTests@{ReadTests}!quadratic\_tests.hpp@{quadratic\_tests.hpp}}
+\doxysubsubsection{\texorpdfstring{ReadTests()}{ReadTests()}}
+{\footnotesize\ttfamily \label{quadratic__tests_8hpp_a5f175e8ba2ae6bca1987b456c4cdaec4} 
+int Read\+Tests (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}const}]{filename}{, }\item[{const int}]{tests\+\_\+count}{, }\item[{\mbox{\hyperlink{structSquareEquation}{Square\+Equation}}}]{quads}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+Reads tests from file
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em filename} & Name of file to read from \\
+\hline
+\mbox{\texttt{in}}  & {\em tests\+\_\+count} & Amount of tests if file \\
+\hline
+\mbox{\texttt{in}}  & {\em quads} & Array of structs of type \doxylink{structSquareEquation}{Square\+Equation}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value on error, else 0 
+\end{DoxyReturn}
+\Hypertarget{quadratic__tests_8hpp_a7948e5311cd441c20b5bb0abac41ec6d}\index{quadratic\_tests.hpp@{quadratic\_tests.hpp}!RunTest@{RunTest}}
+\index{RunTest@{RunTest}!quadratic\_tests.hpp@{quadratic\_tests.hpp}}
+\doxysubsubsection{\texorpdfstring{RunTest()}{RunTest()}}
+{\footnotesize\ttfamily \label{quadratic__tests_8hpp_a7948e5311cd441c20b5bb0abac41ec6d} 
+int Run\+Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSquareEquation}{Square\+Equation}} \texorpdfstring{$\ast$}{*}const}]{quad}{}\end{DoxyParamCaption})}
+
+Runs one test
+
+Compairing readed answer with calculated
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em quad} & Structure of type \doxylink{structSquareEquation}{Square\+Equation} with readed answer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value on error, else 0 
+\end{DoxyReturn}

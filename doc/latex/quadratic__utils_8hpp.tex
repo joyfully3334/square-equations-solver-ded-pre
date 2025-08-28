@@ -1,0 +1,111 @@
+\doxysection{quadratic\+\_\+utils.\+hpp File Reference}
+\hypertarget{quadratic__utils_8hpp}{}\label{quadratic__utils_8hpp}\index{quadratic\_utils.hpp@{quadratic\_utils.hpp}}
+{\ttfamily \#include "{}quadratic\+\_\+equation.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{quadratic__utils_8hpp_af2f45efb67676acc2791199a2dd79878}{Double\+Comp}} (const double num1, const double num2)
+\item 
+void \mbox{\hyperlink{quadratic__utils_8hpp_a3938b5d5d95f6973c3e13f12fd15d2f5}{Remove\+Negative\+Zero}} (double \texorpdfstring{$\ast$}{*}const num)
+\item 
+int \mbox{\hyperlink{quadratic__utils_8hpp_ad0c528331727b542ee4a8198a2f71e77}{Check\+Flag}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv, const char \texorpdfstring{$\ast$}{*}const flag)
+\item 
+int \mbox{\hyperlink{quadratic__utils_8hpp_a3ddcdc81d7a191d9192e3c3c63fa7d99}{Quadratic\+Comp}} (const \mbox{\hyperlink{structSquareEquation}{Square\+Equation}} quad1, const \mbox{\hyperlink{structSquareEquation}{Square\+Equation}} quad2)
+\item 
+int \mbox{\hyperlink{quadratic__utils_8hpp_ac1581f3d6bf4ed182c9c265eef8275f5}{Get\+Amount\+Of\+Lines}} (const char \texorpdfstring{$\ast$}{*}const filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains extra functions 
+
+\label{doc-func-members}
+\Hypertarget{quadratic__utils_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{quadratic__utils_8hpp_ad0c528331727b542ee4a8198a2f71e77}\index{quadratic\_utils.hpp@{quadratic\_utils.hpp}!CheckFlag@{CheckFlag}}
+\index{CheckFlag@{CheckFlag}!quadratic\_utils.hpp@{quadratic\_utils.hpp}}
+\doxysubsubsection{\texorpdfstring{CheckFlag()}{CheckFlag()}}
+{\footnotesize\ttfamily \label{quadratic__utils_8hpp_ad0c528331727b542ee4a8198a2f71e77} 
+int Check\+Flag (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{, }\item[{const char \texorpdfstring{$\ast$}{*}const}]{flag}{}\end{DoxyParamCaption})}
+
+Checks if flag is in the argv
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}int\mbox{]}} & argc Amount of arguments \\
+\hline
+{\em \mbox{[}int\mbox{]}} & argv All arguments \\
+\hline
+{\em \mbox{[}int\mbox{]}} & flag Flag that function tries to find\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Positive value if flag found, else 0 
+\end{DoxyReturn}
+\Hypertarget{quadratic__utils_8hpp_af2f45efb67676acc2791199a2dd79878}\index{quadratic\_utils.hpp@{quadratic\_utils.hpp}!DoubleComp@{DoubleComp}}
+\index{DoubleComp@{DoubleComp}!quadratic\_utils.hpp@{quadratic\_utils.hpp}}
+\doxysubsubsection{\texorpdfstring{DoubleComp()}{DoubleComp()}}
+{\footnotesize\ttfamily \label{quadratic__utils_8hpp_af2f45efb67676acc2791199a2dd79878} 
+int Double\+Comp (\begin{DoxyParamCaption}\item[{const double}]{num1}{, }\item[{const double}]{num2}{}\end{DoxyParamCaption})}
+
+Compares numbers of type double
+
+Default accuracy is 1e-\/5
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em num1} & First number \\
+\hline
+\mbox{\texttt{in}}  & {\em num2} & Second number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Positive value if num1 \texorpdfstring{$>$}{>} num2, Negative if num1 \texorpdfstring{$<$}{<} num2, else 0 
+\end{DoxyReturn}
+\Hypertarget{quadratic__utils_8hpp_ac1581f3d6bf4ed182c9c265eef8275f5}\index{quadratic\_utils.hpp@{quadratic\_utils.hpp}!GetAmountOfLines@{GetAmountOfLines}}
+\index{GetAmountOfLines@{GetAmountOfLines}!quadratic\_utils.hpp@{quadratic\_utils.hpp}}
+\doxysubsubsection{\texorpdfstring{GetAmountOfLines()}{GetAmountOfLines()}}
+{\footnotesize\ttfamily \label{quadratic__utils_8hpp_ac1581f3d6bf4ed182c9c265eef8275f5} 
+int Get\+Amount\+Of\+Lines (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}const}]{filename}{}\end{DoxyParamCaption})}
+
+Reads amount of lines from file
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}int\mbox{]}} & filename Name of file to read from\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Amount of lines in file 
+\end{DoxyReturn}
+\Hypertarget{quadratic__utils_8hpp_a3ddcdc81d7a191d9192e3c3c63fa7d99}\index{quadratic\_utils.hpp@{quadratic\_utils.hpp}!QuadraticComp@{QuadraticComp}}
+\index{QuadraticComp@{QuadraticComp}!quadratic\_utils.hpp@{quadratic\_utils.hpp}}
+\doxysubsubsection{\texorpdfstring{QuadraticComp()}{QuadraticComp()}}
+{\footnotesize\ttfamily \label{quadratic__utils_8hpp_a3ddcdc81d7a191d9192e3c3c63fa7d99} 
+int Quadratic\+Comp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structSquareEquation}{Square\+Equation}}}]{quad1}{, }\item[{const \mbox{\hyperlink{structSquareEquation}{Square\+Equation}}}]{quad2}{}\end{DoxyParamCaption})}
+
+Compares solutions of two structes of type \doxylink{structSquareEquation}{Square\+Equation}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}int\mbox{]}} & quad1 First struct \\
+\hline
+{\em \mbox{[}int\mbox{]}} & quad2 Second struct\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Positive value if solutions differs, else 0 
+\end{DoxyReturn}
+\Hypertarget{quadratic__utils_8hpp_a3938b5d5d95f6973c3e13f12fd15d2f5}\index{quadratic\_utils.hpp@{quadratic\_utils.hpp}!RemoveNegativeZero@{RemoveNegativeZero}}
+\index{RemoveNegativeZero@{RemoveNegativeZero}!quadratic\_utils.hpp@{quadratic\_utils.hpp}}
+\doxysubsubsection{\texorpdfstring{RemoveNegativeZero()}{RemoveNegativeZero()}}
+{\footnotesize\ttfamily \label{quadratic__utils_8hpp_a3938b5d5d95f6973c3e13f12fd15d2f5} 
+void Remove\+Negative\+Zero (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}const}]{num}{}\end{DoxyParamCaption})}
+
+Checks if num equals -\/0 and converts to 0 if it is
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em num} & Number of type double to be changed \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,59 @@
+\doxysection{quadratic\+\_\+input.\+hpp File Reference}
+\hypertarget{quadratic__input_8hpp}{}\label{quadratic__input_8hpp}\index{quadratic\_input.hpp@{quadratic\_input.hpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}quadratic\+\_\+equation.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{quadratic__input_8hpp_aa1de583e6dc2f1a8528e7527ebdd7328}{Read\+Input}} (\mbox{\hyperlink{structSquareEquation}{Square\+Equation}} \texorpdfstring{$\ast$}{*}const quad, FILE \texorpdfstring{$\ast$}{*}const input\+\_\+fp)
+\item 
+int \mbox{\hyperlink{quadratic__input_8hpp_af90e1960cc617cd8addec755fc81d9aa}{Parse\+Input}} (\mbox{\hyperlink{structSquareEquation}{Square\+Equation}} \texorpdfstring{$\ast$}{*}const quad, FILE \texorpdfstring{$\ast$}{*}const input\+\_\+fp)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains input functions 
+
+\label{doc-func-members}
+\Hypertarget{quadratic__input_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{quadratic__input_8hpp_af90e1960cc617cd8addec755fc81d9aa}\index{quadratic\_input.hpp@{quadratic\_input.hpp}!ParseInput@{ParseInput}}
+\index{ParseInput@{ParseInput}!quadratic\_input.hpp@{quadratic\_input.hpp}}
+\doxysubsubsection{\texorpdfstring{ParseInput()}{ParseInput()}}
+{\footnotesize\ttfamily \label{quadratic__input_8hpp_af90e1960cc617cd8addec755fc81d9aa} 
+int Parse\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSquareEquation}{Square\+Equation}} \texorpdfstring{$\ast$}{*}const}]{quad}{, }\item[{FILE \texorpdfstring{$\ast$}{*}const}]{input\+\_\+fp}{}\end{DoxyParamCaption})}
+
+Parses coefficients from strings like ax\texorpdfstring{$^\wedge$}{\string^}2 + bx + c
+
+Reads coefficients from input\+\_\+fp to quad
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em quad} & Square equation where function puts coefficients \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+fp} & Pointer to a stream where function reads coefficients\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/negative value on error, else 0 
+\end{DoxyReturn}
+\Hypertarget{quadratic__input_8hpp_aa1de583e6dc2f1a8528e7527ebdd7328}\index{quadratic\_input.hpp@{quadratic\_input.hpp}!ReadInput@{ReadInput}}
+\index{ReadInput@{ReadInput}!quadratic\_input.hpp@{quadratic\_input.hpp}}
+\doxysubsubsection{\texorpdfstring{ReadInput()}{ReadInput()}}
+{\footnotesize\ttfamily \label{quadratic__input_8hpp_aa1de583e6dc2f1a8528e7527ebdd7328} 
+int Read\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSquareEquation}{Square\+Equation}} \texorpdfstring{$\ast$}{*}const}]{quad}{, }\item[{FILE \texorpdfstring{$\ast$}{*}const}]{input\+\_\+fp}{}\end{DoxyParamCaption})}
+
+Reads three numbers in {\ttfamily double} type
+
+Reads coefficients from input\+\_\+fp to quad
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em quad} & Square equation where function puts coefficients \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+fp} & Pointer to a stream where function reads coefficients\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/negative value on error 
+\end{DoxyReturn}

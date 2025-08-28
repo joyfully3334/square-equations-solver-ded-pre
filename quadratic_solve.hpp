@@ -1,3 +1,9 @@
+//--------------------------------------------------------------
+//! @file quadratic_solve.hpp
+//!
+//! Contains solving function
+//--------------------------------------------------------------
+
 #ifndef QUADRATIC_SOLVE_HPP
 #define QUADRATIC_SOLVE_HPP
 

@@ -1,3 +1,9 @@
+//--------------------------------------------------------------
+//! @file quadratic_tests.hpp
+//!
+//! Contains testing functions
+//--------------------------------------------------------------
+
 #ifndef QUADRATIC_TESTS_HPP
 #define QUADRATIC_TESTS_HPP
 

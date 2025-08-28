@@ -17,6 +17,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -30,6 +33,18 @@
    </div>
    <div id="projectbrief">Solves square equation</div>
   </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -42,15 +57,6 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 $(function() { codefold.init(); });
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Search',true);
-  $(function() { init_search(); });
-});
-</script>
-<div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -92,45 +98,54 @@ $(function(){initNavTree('quadratic__utils_8hpp_source.html','',''); });
   <div class="headertitle"><div class="title">quadratic_utils.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef QUADRATIC_UTILS_HPP</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define QUADRATIC_UTILS_HPP</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;quadratic_equation.hpp&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//--------------------------------------------------------------</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//--------------------------------------------------------------</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">int</span> DoubleComp(<span class="keyword">const</span> <span class="keywordtype">double</span> num1, <span class="keyword">const</span> <span class="keywordtype">double</span> num2);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//--------------------------------------------------------------</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//--------------------------------------------------------------</span></div>
+<a href="quadratic__utils_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef QUADRATIC_UTILS_HPP</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define QUADRATIC_UTILS_HPP</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="quadratic__equation_8hpp.html">quadratic_equation.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">int</span> <a class="code hl_function" href="quadratic__utils_8hpp.html#af2f45efb67676acc2791199a2dd79878">DoubleComp</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> num1, <span class="keyword">const</span> <span class="keywordtype">double</span> num2);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> RemoveNegativeZero(<span class="keywordtype">double</span> *<span class="keyword">const</span> num);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">//--------------------------------------------------------------</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">//--------------------------------------------------------------</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">int</span> CheckFlag(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv, <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> flag);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">//--------------------------------------------------------------</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">//--------------------------------------------------------------</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">int</span> QuadraticComp(<span class="keyword">const</span> <a class="code hl_struct" href="structSquareEquation.html">SquareEquation</a> quad1, <span class="keyword">const</span> <a class="code hl_struct" href="structSquareEquation.html">SquareEquation</a> quad2);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> <a class="code hl_function" href="quadratic__utils_8hpp.html#a3938b5d5d95f6973c3e13f12fd15d2f5">RemoveNegativeZero</a>(<span class="keywordtype">double</span> *<span class="keyword">const</span> num);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keywordtype">int</span> <a class="code hl_function" href="quadratic__utils_8hpp.html#ad0c528331727b542ee4a8198a2f71e77">CheckFlag</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv, <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> flag);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">int</span> <a class="code hl_function" href="quadratic__utils_8hpp.html#a3ddcdc81d7a191d9192e3c3c63fa7d99">QuadraticComp</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structSquareEquation.html">SquareEquation</a> quad1, <span class="keyword">const</span> <a class="code hl_struct" href="structSquareEquation.html">SquareEquation</a> quad2);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">//--------------------------------------------------------------</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">int</span> GetAmountOfLines(<span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> filename);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif </span><span class="comment">// QUADRATIC_UTILS_HPP</span></div>
-<div class="ttc" id="astructSquareEquation_html"><div class="ttname"><a href="structSquareEquation.html">SquareEquation</a></div><div class="ttdef"><b>Definition</b> quadratic_equation.hpp:25</div></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keywordtype">int</span> <a class="code hl_function" href="quadratic__utils_8hpp.html#ac1581f3d6bf4ed182c9c265eef8275f5">GetAmountOfLines</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> filename);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#endif </span><span class="comment">// QUADRATIC_UTILS_HPP</span></div>
+<div class="ttc" id="aquadratic__equation_8hpp_html"><div class="ttname"><a href="quadratic__equation_8hpp.html">quadratic_equation.hpp</a></div></div>
+<div class="ttc" id="aquadratic__utils_8hpp_html_a3938b5d5d95f6973c3e13f12fd15d2f5"><div class="ttname"><a href="quadratic__utils_8hpp.html#a3938b5d5d95f6973c3e13f12fd15d2f5">RemoveNegativeZero</a></div><div class="ttdeci">void RemoveNegativeZero(double *const num)</div><div class="ttdef"><b>Definition</b> quadratic_utils.cpp:19</div></div>
+<div class="ttc" id="aquadratic__utils_8hpp_html_a3ddcdc81d7a191d9192e3c3c63fa7d99"><div class="ttname"><a href="quadratic__utils_8hpp.html#a3ddcdc81d7a191d9192e3c3c63fa7d99">QuadraticComp</a></div><div class="ttdeci">int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2)</div><div class="ttdef"><b>Definition</b> quadratic_utils.cpp:38</div></div>
+<div class="ttc" id="aquadratic__utils_8hpp_html_ac1581f3d6bf4ed182c9c265eef8275f5"><div class="ttname"><a href="quadratic__utils_8hpp.html#ac1581f3d6bf4ed182c9c265eef8275f5">GetAmountOfLines</a></div><div class="ttdeci">int GetAmountOfLines(const char *const filename)</div><div class="ttdef"><b>Definition</b> quadratic_utils.cpp:58</div></div>
+<div class="ttc" id="aquadratic__utils_8hpp_html_ad0c528331727b542ee4a8198a2f71e77"><div class="ttname"><a href="quadratic__utils_8hpp.html#ad0c528331727b542ee4a8198a2f71e77">CheckFlag</a></div><div class="ttdeci">int CheckFlag(int argc, char **argv, const char *const flag)</div><div class="ttdef"><b>Definition</b> quadratic_utils.cpp:25</div></div>
+<div class="ttc" id="aquadratic__utils_8hpp_html_af2f45efb67676acc2791199a2dd79878"><div class="ttname"><a href="quadratic__utils_8hpp.html#af2f45efb67676acc2791199a2dd79878">DoubleComp</a></div><div class="ttdeci">int DoubleComp(const double num1, const double num2)</div><div class="ttdef"><b>Definition</b> quadratic_utils.cpp:10</div></div>
+<div class="ttc" id="astructSquareEquation_html"><div class="ttname"><a href="structSquareEquation.html">SquareEquation</a></div><div class="ttdef"><b>Definition</b> quadratic_equation.hpp:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>quadratic_utils.hpp</b></li>
+    <li class="navelem"><a href="quadratic__utils_8hpp.html">quadratic_utils.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

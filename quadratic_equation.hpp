@@ -1,3 +1,9 @@
+//--------------------------------------------------------------
+//! @file quadratic_equation.hpp
+//!
+//! Contains SquareEquation structure
+//--------------------------------------------------------------
+
 #ifndef QUADRATIC_EQUATION_HPP
 #define QUADRATIC_EQUATION_HPP
 

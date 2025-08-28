@@ -1,3 +1,9 @@
+//--------------------------------------------------------------
+//! @file quadratic_print.hpp
+//!
+//! Contains print functions
+//--------------------------------------------------------------
+
 #ifndef QUADRATIC_PRINT_HPP
 #define QUADRATIC_PRINT_HPP
 

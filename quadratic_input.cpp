@@ -5,19 +5,23 @@
 
 #include "quadratic_input.hpp"
 
-INPUT_ERRORS ReadInput(SquareEquation *const quad, FILE *const input_fp) {
+int ReadInput(SquareEquation *const quad, FILE *const input_fp) {
   assert(quad);
   assert(input_fp);
 
-  if (fscanf(input_fp, "%lf%lf%lf", &quad->a, &quad->b, &quad->c) != 3)
-    return not_a_number;
-  if (!isfinite(quad->a) || !isfinite(quad->b) || !isfinite(quad->c))
-    return not_finite;
+  if (fscanf(input_fp, "%lf%lf%lf", &quad->a, &quad->b, &quad->c) != 3) {
+    fprintf(stderr, "Incorrect input data: Provided symbols is not a number\n");
+    return 1;
+  }
+  if (!isfinite(quad->a) || !isfinite(quad->b) || !isfinite(quad->c)) {
+    fprintf(stderr, "Incorrect input data: Provided number is not finite\n");
+    return 1;
+  }
 
-  return no_input_errors;
+  return 0;
 }
 
-INPUT_ERRORS ParseInput(SquareEquation *const quad, FILE *const input_fp) {
+int ParseInput(SquareEquation *const quad, FILE *const input_fp) {
   assert(quad);
   assert(input_fp);
 
@@ -51,17 +55,5 @@ INPUT_ERRORS ParseInput(SquareEquation *const quad, FILE *const input_fp) {
   quad->c = nums[0];
   quad->b = nums[1];
   quad->a = nums[2];
-  return no_input_errors;
-}
-
-int InputErrorHandler(const INPUT_ERRORS read_result) {
-  if (read_result == not_a_number) {
-    fprintf(stderr, "Incorrect input data: Provided symbols is not a number\n");
-    return 1;
-  } else if (read_result == not_finite) {
-    fprintf(stderr, "Incorrect input data: Provided number is not finite\n");
-    return 1;
-  }
-
   return 0;
 }

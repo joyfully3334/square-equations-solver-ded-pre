@@ -29,7 +29,7 @@ int ParseInput(SquareEquation *const quad, FILE *const input_fp) {
   int deg = 0, changed = 0, after_dot = 0, prev_mark = 1;
   double tmp = 0;
   double nums[3] = {0., 0., 0.};
-  for (int i = 0; (ch = fgetc(input_fp)) != EOF; ++i) {
+  while ((ch = fgetc(input_fp)) != EOF) {
     if (isdigit(ch) && deg != 2 && !after_dot) {
       changed = 1;
       tmp = tmp * 10 + (ch - '0');

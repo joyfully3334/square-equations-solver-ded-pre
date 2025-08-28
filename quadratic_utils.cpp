@@ -26,6 +26,8 @@ int CheckFlag(int argc, char **argv, const char *const flag) {
   assert(flag);
 
   for (int i = 0; i < argc; ++i) {
+    assert(0 <= i && i < argc);
+
     if (!strcmp(argv[i], flag))
       return 1;
   }

@@ -23,7 +23,9 @@ int ExecuteTests(const char *const tests_filename, const int is_parsing) {
   else
     ReadTests(tests_filename, amount_of_lines, quads);
 
-  for (int i = 0; i < (int)amount_of_lines; ++i) {
+  for (int i = 0; i < amount_of_lines; ++i) {
+    assert(0 <= i && i < amount_of_lines);
+
     if (RunTest(&quads[i])) {
       PrintTestError(quads, i, tests_filename);
       free(quads);
@@ -58,11 +60,10 @@ int ReadTests(const char *const filename, const int tests_count, SquareEquation 
     return 1;
   }
   int tmp = 0;
-  for (int i = 0;; ++i) {
-    if (i >= tests_count) {
-      fclose(fp);
-      return 1;
-    } else if ((tmp = ReadOneTest(fp, &quads[i]))) {
+  for (int i = 0; i < tests_count; ++i) {
+    assert(0 <= i && i < tests_count);
+
+    if ((tmp = ReadOneTest(fp, &quads[i]))) {
       fclose(fp);
       return tmp;
     }
@@ -117,8 +118,9 @@ int ParseTests(const char *const filename, const int tests_count, SquareEquation
     return 1;
   }
   int tmp = 0;
-  for (int i = 0;; ++i) {
+  for (int i = 0; i < tests_count; ++i) {
     assert(0 <= i && i < tests_count);
+
     if ((tmp = ParseOneTest(fp, &quads[i]))) {
       fclose(fp);
       return tmp;

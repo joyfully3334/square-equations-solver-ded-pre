@@ -12,6 +12,8 @@
 //!
 //! @param [in] quad     Square equation where function puts coefficients
 //! @param [in] input_fp Pointer to a stream where function reads coefficients
+//!
+//! @return Non-negative value on error
 //---------------------------------------------------------------
 
 int ReadInput(SquareEquation *const quad, FILE *const input_fp);
@@ -23,6 +25,8 @@ int ReadInput(SquareEquation *const quad, FILE *const input_fp);
 //!
 //! @param [in] quad     Square equation where function puts coefficients
 //! @param [in] input_fp Pointer to a stream where function reads coefficients
+//!
+//! @return Non-negative value on error, else 0
 //---------------------------------------------------------------
 
 int ParseInput(SquareEquation *const quad, FILE *const input_fp);

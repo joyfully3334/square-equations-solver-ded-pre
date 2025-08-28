@@ -48,7 +48,7 @@ int RunTest(SquareEquation *const quad) {
   return 0;
 }
 
-int ReadTests(const char *const filename, const int MAX_SIZE, SquareEquation quads[]) {
+int ReadTests(const char *const filename, const int tests_count, SquareEquation quads[]) {
   assert(filename);
   assert(quads);
 
@@ -59,7 +59,7 @@ int ReadTests(const char *const filename, const int MAX_SIZE, SquareEquation qua
   }
   int tmp = 0;
   for (int i = 0;; ++i) {
-    if (i >= MAX_SIZE) {
+    if (i >= tests_count) {
       fclose(fp);
       return 1;
     } else if ((tmp = ReadOneTest(fp, &quads[i]))) {
@@ -107,7 +107,7 @@ static int ReadOneTest(FILE *const fp, SquareEquation *const quad) {
   return 0;
 }
 
-int ParseTests(const char *const filename, const int MAX_SIZE, SquareEquation quads[]) {
+int ParseTests(const char *const filename, const int tests_count, SquareEquation quads[]) {
   assert(filename);
   assert(quads);
 
@@ -118,10 +118,8 @@ int ParseTests(const char *const filename, const int MAX_SIZE, SquareEquation qu
   }
   int tmp = 0;
   for (int i = 0;; ++i) {
-    if (i >= MAX_SIZE) {
-      fclose(fp);
-      return 1;
-    } else if ((tmp = ParseOneTest(fp, &quads[i]))) {
+    assert(0 <= i && i < tests_count);
+    if ((tmp = ParseOneTest(fp, &quads[i]))) {
       fclose(fp);
       return tmp;
     }

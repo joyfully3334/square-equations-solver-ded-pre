@@ -1,6 +1,6 @@
 # Square Equation Solver
 
-Pretty simple programm to solve square equations.
+Programm to solve square equations.
 
 ## Options
 
@@ -51,7 +51,7 @@ To run programm in testing mode you need to
 start executable with `--self-check` flag.
 
 If you are using build_and_run.sh script you need
-tor pass `--self-check` flag after `-a` flag.
+to pass `--self-check` flag after `-a` flag.
 
 Example: `./build_and_run.sh ./*.cpp -a --self-check`
 

@@ -14,6 +14,14 @@ enum PRINT_RESULTS_ERRORS {
   undefined_amount_of_solutions = 1,
 };
 
+//--------------------------------------------------------------
+//! Prints result of square equation
+//!
+//! @param [in] quad Structure of type SquareEquation
+//!
+//! @see SquareEquation
+//--------------------------------------------------------------
+
 PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad);
 
 //--------------------------------------------------------------
@@ -38,6 +46,8 @@ void PrintHelp();
 //! @param [in] quads          Array of structures of type SquareEquation
 //! @param [in] i              Number of test
 //! @param [in] tests_filename Name of file that used to read tests
+//!
+//! @see SquareEquation
 //--------------------------------------------------------------
 
 void PrintTestError(SquareEquation *const quads, const int i, const char *const tests_filename);

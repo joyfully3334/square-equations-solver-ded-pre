@@ -49,6 +49,8 @@ int CheckFlag(int argc, char **argv, const char *const flag);
 //! @param [int] quad2 Second struct
 //!
 //! @return Positive value if solutions differs, else 0
+//!
+//! @see SquareEquation
 //--------------------------------------------------------------
 
 int QuadraticComp(const SquareEquation quad1, const SquareEquation quad2);

@@ -26,6 +26,8 @@ enum AMOUNT_OF_SOLUTIONS {
 //! @param x1                  First answer
 //! @param x2                  Second answer
 //! @param number_of_solutions Amount of solutions
+//!
+//! @see SolveEquation PrintResult
 //---------------------------------------------------------------
 
 struct SquareEquation {

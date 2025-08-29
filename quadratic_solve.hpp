@@ -13,6 +13,8 @@
 //! Solves equation of type SquareEquation
 //!
 //! @param [in] quad SquareEquation that will be solved
+//!
+//! @see SquareEquation
 //--------------------------------------------------------------
 
 void SolveEquation(SquareEquation *const quad);

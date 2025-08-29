@@ -30,6 +30,8 @@ int ExecuteTests(const char *const tests_filename, const int is_parsing);
 //! @param [in] quads       Array of structs of type SquareEquation
 //!
 //! @return Non-zero value on error, else 0
+//!
+//! @see SquareEquation
 //--------------------------------------------------------------
 
 int ReadTests(const char *const filename, const int tests_count, SquareEquation quads[]);
@@ -42,6 +44,8 @@ int ReadTests(const char *const filename, const int tests_count, SquareEquation 
 //! @param [in] quads       Array of structs of type SquareEquation
 //!
 //! @return Non-zero value on error, else 0
+//!
+//! @see SquareEquation
 //--------------------------------------------------------------
 
 int ParseTests(const char *const filename, const int tests_count, SquareEquation quads[]);
@@ -54,6 +58,8 @@ int ParseTests(const char *const filename, const int tests_count, SquareEquation
 //! @param [in] quad Structure of type SquareEquation with readed answer
 //!
 //! @return Non-zero value on error, else 0
+//!
+//! @see SquareEquation
 //--------------------------------------------------------------
 
 int RunTest(SquareEquation *const quad);

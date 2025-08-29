@@ -1,3 +1,6 @@
+---
+@mainpage Square Equation Solver
+---
 # Square Equation Solver
 
 Programm to solve square equations.

@@ -29,7 +29,7 @@ PRINT_RESULTS_ERRORS PrintResult(const SquareEquation quad) {
 }
 
 void PrintWelcome() {
-  printf("%s\n%s\n", "\nSquare equation solver", "Version from 28.08.2025\n");
+  printf("%s\n%s\n", "\nSquare equation solver", "Version from 29.08.2025\n");
 }
 void PrintHelp() {
     printf("%s\n%s\n%s\n%s\n%s\n%s\n",
